@@ -1,0 +1,150 @@
+:root {
+  --screen-width: 375px;
+  --capture-height: 5250px;
+  --ink: #222;
+  --muted: #666;
+  --wire-line: #555;
+  --annotation: #d60000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #ddd;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #ddd;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.phone {
+  width: min(100%, var(--screen-width));
+  margin-inline: auto;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 22px rgb(0 0 0 / 14%);
+}
+
+.capture {
+  width: 100%;
+  background-image: url("婚約指輪コース_現行500pxキャプチャ_上部7000px.png");
+  background-repeat: no-repeat;
+  background-size: var(--screen-width) var(--capture-height);
+}
+
+.capture--top {
+  height: 945px;
+  background-position: 0 0;
+}
+
+.capture--middle {
+  height: 2524px;
+  background-position: 0 -945px;
+}
+
+.capture--bottom {
+  height: 581px;
+  background-position: 0 -3469px;
+}
+
+.insert-frame {
+  width: 100%;
+  padding: 6px 0 12px;
+  background: #fff;
+  border: 3px solid var(--annotation);
+}
+
+.insert-label {
+  margin: 0 12px 4px;
+  color: var(--annotation);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.campaign-wire {
+  min-height: 94px;
+  margin-inline: 12px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "period period"
+    "title link";
+  align-items: end;
+  column-gap: 10px;
+  border: 1px solid var(--wire-line);
+  background: #fff;
+}
+
+.campaign-wire__period {
+  grid-area: period;
+  align-self: start;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .03em;
+}
+
+.campaign-wire strong {
+  grid-area: title;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.campaign-wire__link {
+  grid-area: link;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--wire-line);
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.campaign-wire__link b {
+  font-size: 15px;
+}
+
+.wire-note {
+  margin: 0;
+  padding: 14px 20px 20px;
+  color: var(--muted);
+  background: #fff;
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 374px) {
+  .capture {
+    background-size: 100% auto;
+  }
+
+  .capture--top,
+  .capture--middle,
+  .capture--bottom {
+    height: auto;
+    aspect-ratio: 375 / var(--segment-height);
+  }
+
+  .capture--top {
+    --segment-height: 945;
+  }
+
+  .capture--middle {
+    --segment-height: 2524;
+  }
+
+  .capture--bottom {
+    --segment-height: 581;
+  }
+}
