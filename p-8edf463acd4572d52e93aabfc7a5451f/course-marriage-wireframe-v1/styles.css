@@ -1,0 +1,119 @@
+:root {
+  --screen-width: 375px;
+  --capture-height: 5550px;
+  --capture-before-insert: 3908px;
+  --capture-after-insert: 1642px;
+  --ink: #222;
+  --muted: #777;
+  --wire-line: #777;
+  --wire-soft: #e8e8e8;
+  --annotation: #d60000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: #ddd;
+}
+
+body {
+  color: var(--ink);
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+}
+
+.phone {
+  width: min(100%, var(--screen-width));
+  margin-inline: auto;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 22px rgb(0 0 0 / 14%);
+}
+
+.capture {
+  width: 100%;
+  background-image: url("assets/手作り結婚指輪コース_選べるデザイン現行500px_20260924.png");
+  background-repeat: no-repeat;
+  background-size: var(--screen-width) var(--capture-height);
+}
+
+.capture--before-insert {
+  height: var(--capture-before-insert);
+  background-position: 0 0;
+}
+
+.capture--after-insert {
+  height: var(--capture-after-insert);
+  background-position: 0 -3908px;
+}
+
+.course-option-frame {
+  width: 100%;
+  padding: 6px 0 18px;
+  background: #fff;
+  border: 3px solid var(--annotation);
+}
+
+.insert-label {
+  margin: 0 16px 7px;
+  color: var(--annotation);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.course-option-wire {
+  margin-inline: 35px;
+}
+
+.course-option-wire__image {
+  aspect-ratio: 400 / 220;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  background: var(--wire-soft);
+  border: 1px solid var(--wire-line);
+  font-size: 11px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.course-option-wire h1 {
+  margin: 13px 0 8px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.course-option-wire__description {
+  margin: 0;
+  font-size: 10.5px;
+  line-height: 1.75;
+}
+
+.course-option-wire__description span {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 374px) {
+  .capture {
+    background-size: 100vw auto;
+  }
+
+  .capture--before-insert {
+    height: 1042.13vw;
+  }
+
+  .capture--after-insert {
+    height: 437.87vw;
+    background-position: 0 -1042.13vw;
+  }
+
+  .course-option-wire__description {
+    font-size: 2.8vw;
+  }
+}
