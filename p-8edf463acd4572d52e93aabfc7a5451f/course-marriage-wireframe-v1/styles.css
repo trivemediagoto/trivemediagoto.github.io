@@ -35,7 +35,7 @@ body {
 
 .capture {
   width: 100%;
-  background-image: url("assets/手作り結婚指輪コース_選べるデザイン現行500px_20260924.png");
+  background-image: url("assets/手作り結婚指輪コース_選べるデザイン現行500px_20260924.png");
   background-repeat: no-repeat;
   background-size: var(--screen-width) var(--capture-height);
 }
