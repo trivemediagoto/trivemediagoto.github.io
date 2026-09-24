@@ -1,0 +1,103 @@
+:root {
+  color: #111;
+  background: #e8e8e8;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+p, h1, h2, h3, h4, ul, ol, dl, dd { margin-top: 0; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+button { font: inherit; }
+
+.phone { width: 375px; max-width: 100%; margin: 0 auto; background: #fff; box-shadow: 0 0 24px #0002; }
+.content { padding-top: 75px; }
+
+/* ミルグレイン詳細ページのSPヘッダー（75px） */
+.header { position: fixed; z-index: 10; top: 0; left: 50%; width: 375px; max-width: 100%; height: 75px; transform: translateX(-50%); background: #fff; }
+.header__inner { display: flex; align-items: center; width: 100%; height: 75px; padding-left: 25px; }
+.header__logo { display: block; width: 140px; }
+.header__logo h1 { margin: 0; }
+.header__logo img { width: 140px; height: auto; }
+.header__vacant { position: absolute; top: 0; right: 75px; width: 75px; height: 75px; overflow: hidden; }
+.header__vacant img { width: 75px; height: 75px; max-width: none; }
+.header__menu { position: absolute; top: 0; right: 0; width: 75px; height: 75px; display: grid; place-items: center; background: #a58f86; }
+.header__menu span, .header__menu span::before, .header__menu span::after { position: absolute; display: block; width: 22px; height: 1px; background: #fff; content: ""; }
+.header__menu span::before { transform: translateY(-7px); }
+.header__menu span::after { transform: translateY(7px); }
+
+/* 既存詳細ページと同じ、アイキャッチの前にあるページ内目次 */
+.pageNav { height: 45px; padding: 10px 0; overflow-x: auto; scrollbar-width: none; }
+.pageNav::-webkit-scrollbar { display: none; }
+.pageMenu { min-width: max-content; height: 25px; padding: 0 5px; display: flex; align-items: center; gap: 5px; list-style: none; }
+.pageMenu li { padding: 0 3px; white-space: nowrap; }
+.pageMenu a { font-size: 11px; line-height: 1; text-decoration: none; }
+
+.fv__img { position: relative; width: 100%; height: 302px; display: grid; place-items: center; overflow: hidden; background: #bbb; }
+.fv__img::before, .fv__img::after { position: absolute; width: 135%; height: 1px; background: #999; content: ""; }
+.fv__img::before { transform: rotate(31deg); }
+.fv__img::after { transform: rotate(-31deg); }
+.image-label { position: relative; z-index: 1; padding: 7px 12px; background: #eee; color: #444; font-size: 11px; line-height: 1.6; text-align: center; }
+.fv__number { position: absolute; z-index: 2; bottom: 10px; left: 39px; color: #fff; font-family: Georgia, "Times New Roman", serif; font-size: 31px; font-weight: 400; line-height: 1; text-shadow: 0 1px 3px #0005; }
+.fv__block { padding: 5px 40px 60px; }
+.fv__title { margin-bottom: 23.6px; color: #a58f86; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 14px; font-weight: 400; line-height: 14px; }
+.fv__heading { margin-bottom: 15.7px; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 19px; font-weight: 400; line-height: 19px; white-space: nowrap; }
+.fv__text { margin-bottom: 0; font-size: 14px; line-height: 28px; letter-spacing: .02em; }
+
+/* 既存の画像背景を使うH3帯。数字は置かない */
+.sec__block { padding-bottom: 62px; scroll-margin-top: 100px; }
+.sec__title { min-height: 81px; margin-bottom: 30px; padding: 30px 15px 30px 30px; background: url("assets/bg-section-title-01.jpg") center top / 100% auto no-repeat; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 21px; font-weight: 400; line-height: 21px; }
+.sec__inner { padding: 0 30px; }
+.text { margin-bottom: 0; font-size: 14px; line-height: 28px; letter-spacing: .02em; }
+
+.column { margin-top: 32px; padding: 22px 20px; border: 1px solid #777; background: #fff; }
+.column h4 { margin-bottom: 12px; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; line-height: 1.5; }
+.column p { margin-bottom: 0; font-size: 13px; line-height: 1.9; }
+.column__photo { width: 170px; height: auto; margin-top: 15px; filter: grayscale(1); }
+
+.subhead { margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid #777; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; }
+.subhead--second { margin-top: 40px; }
+.sample-list { display: grid; grid-template-columns: 1fr 1fr; gap: 21px 12px; }
+.sample { min-width: 0; }
+.sample__image, .handdrawn-example__image { position: relative; width: 100%; display: grid; place-items: center; overflow: hidden; border: 1px solid #aaa; background: #e6e6e6; }
+.sample__image { height: 125px; }
+.sample__image::before, .sample__image::after, .handdrawn-example__image::before, .handdrawn-example__image::after { position: absolute; width: 150%; height: 1px; background: #aaa; content: ""; }
+.sample__image::before, .handdrawn-example__image::before { transform: rotate(35deg); }
+.sample__image::after, .handdrawn-example__image::after { transform: rotate(-35deg); }
+.sample__image span, .handdrawn-example__image span { position: relative; z-index: 1; padding: 3px 6px; background: #f5f5f5; color: #555; font-size: 10px; line-height: 1.5; text-align: center; }
+.sample p { margin: 9px 0 0; font-size: 12px; line-height: 1.55; }
+.handdrawn-example__image { height: 174px; }
+.handdrawn-example p { margin: 12px 0 0; font-size: 13px; line-height: 1.8; }
+
+.flow-list { margin: 0; padding: 0; list-style: none; }
+.flow-list li { padding: 0 0 25px; display: grid; grid-template-columns: 30px 1fr; gap: 10px; }
+.flow-list li + li { padding-top: 21px; border-top: 1px solid #bbb; }
+.flow-list__number { font-family: Georgia, serif; font-size: 22px; line-height: 1; }
+.flow-list h4 { margin-bottom: 8px; font-size: 15px; font-weight: 500; line-height: 1.5; }
+.flow-list p { margin-bottom: 0; font-size: 13px; line-height: 1.85; }
+.download-button { width: 100%; margin-top: 14px; padding: 14px 16px; display: flex; justify-content: space-between; border: 1px solid #444; background: #444; color: #fff; font-size: 12px; cursor: default; opacity: 1; }
+
+.price-summary { padding: 0 0 17px; display: flex; align-items: baseline; gap: 15px; border-bottom: 1px solid #aaa; font-size: 13px; }
+.price-summary strong { font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; }
+.conditions__heading { margin: 24px 0 15px; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; line-height: 1.5; }
+.conditions__heading--notice { margin-top: 40px; }
+.conditions { margin: 0; padding-left: 1.3em; font-size: 13px; line-height: 1.9; }
+.conditions li + li { margin-top: 13px; }
+.conditions strong { font-weight: 700; }
+
+/* 既存ページ末尾の関連オプションは実画像をそのまま利用 */
+.other__inner { padding: 60px 20px 70px; background: url("assets/bg-other.jpg") left top / 100% auto no-repeat; }
+.other { scroll-margin-top: 100px; }
+.other__title { margin-bottom: 40px; color: #fff; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 24px; font-weight: 400; line-height: 24px; }
+.other__list { margin: 0; padding: 0 0 31px; list-style: none; }
+.other__list li { margin-bottom: 22px; }
+.other__list img { width: 100%; height: auto; }
+.btn-b.back { width: 281px; margin: 0 auto; padding: 15px 0; display: block; border: 1px solid #a58f86; background: #fff; color: #a58f86; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 14px; line-height: 14px; text-align: center; text-decoration: none; }
+
+@media (max-width: 375px) {
+  .header { width: 100%; }
+  .pageNav { width: 100%; }
+}
