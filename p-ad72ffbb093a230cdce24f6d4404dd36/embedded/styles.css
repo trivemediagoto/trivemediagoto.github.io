@@ -70,8 +70,8 @@ body {
 
 .campaign-callout {
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 126px minmax(0, 1fr);
+  gap: 10px;
   margin-inline: 12px;
   padding: 10px;
   border: 1px solid var(--line);
@@ -79,12 +79,23 @@ body {
   background: var(--callout);
 }
 
-.campaign-callout > img {
+.campaign-callout__photo {
   align-self: center;
   display: block;
-  width: 112px;
-  height: auto;
+  width: 126px;
+  height: 104px;
+  overflow: hidden;
   border-radius: 2px;
+}
+
+.campaign-callout__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 76%;
+  transform: scale(1.45);
+  transform-origin: 50% 76%;
 }
 
 .campaign-callout__body {
@@ -146,12 +157,12 @@ body {
   }
 
   .campaign-callout {
-    grid-template-columns: 98px minmax(0, 1fr);
-    gap: 10px;
+    grid-template-columns: 108px minmax(0, 1fr);
+    gap: 9px;
   }
 
-  .campaign-callout > img {
-    width: 98px;
-    height: auto;
+  .campaign-callout__photo {
+    width: 108px;
+    height: 104px;
   }
 }
