@@ -1,0 +1,185 @@
+:root {
+  --screen-width: 375px;
+  --capture-height: 5250px;
+  --ink: #2f302e;
+  --muted: #6d6d68;
+  --line: #d9d7d0;
+  --callout: #f5f4f0;
+  --annotation: #d60000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #ddd;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #ddd;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.phone {
+  width: min(100%, var(--screen-width));
+  margin-inline: auto;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 22px rgb(0 0 0 / 14%);
+}
+
+.capture {
+  width: 100%;
+  background-image: url("/p-13ba0b8419230970514600410c193d95/婚約指輪コース_現行500pxキャプチャ_上部7000px.png");
+  background-repeat: no-repeat;
+  background-size: var(--screen-width) var(--capture-height);
+}
+
+.capture--top {
+  height: 945px;
+  background-position: 0 0;
+}
+
+.capture--middle {
+  height: 2524px;
+  background-position: 0 -945px;
+}
+
+.capture--bottom {
+  height: 581px;
+  background-position: 0 -3469px;
+}
+
+.insert-frame {
+  width: 100%;
+  padding: 6px 0 12px;
+  background: #fff;
+  border: 3px solid var(--annotation);
+}
+
+.insert-label {
+  margin: 0 12px 5px;
+  color: var(--annotation);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.campaign-callout {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 13px;
+  margin-inline: 12px;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--callout);
+}
+
+.campaign-callout > img {
+  width: 112px;
+  height: 144px;
+  border-radius: 2px;
+  object-fit: cover;
+  object-position: 50% 75%;
+}
+
+.campaign-callout__body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.campaign-callout__period {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+.campaign-callout strong {
+  color: var(--ink);
+  font-size: 13.5px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.campaign-callout__benefit {
+  margin-top: 4px;
+  color: #5d554b;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.campaign-callout__no-break {
+  white-space: nowrap;
+}
+
+.campaign-callout__link {
+  margin-top: auto;
+  padding-top: 6px;
+  color: #45423d;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.campaign-callout__link b {
+  font-size: 12px;
+}
+
+.wire-note {
+  margin: 0;
+  padding: 14px 20px 20px;
+  color: var(--muted);
+  background: #fff;
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 374px) {
+  .capture {
+    background-size: 100% auto;
+  }
+
+  .capture--top,
+  .capture--middle,
+  .capture--bottom {
+    height: auto;
+    aspect-ratio: 375 / var(--segment-height);
+  }
+
+  .capture--top {
+    --segment-height: 945;
+  }
+
+  .capture--middle {
+    --segment-height: 2524;
+  }
+
+  .capture--bottom {
+    --segment-height: 581;
+  }
+
+  .campaign-callout {
+    grid-template-columns: 98px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .campaign-callout > img {
+    width: 98px;
+    height: 132px;
+  }
+}
