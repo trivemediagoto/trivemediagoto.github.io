@@ -23,11 +23,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 .phone {
   width: min(100%, var(--screen-width));
   margin-inline: auto;
@@ -76,20 +71,20 @@ a {
 .campaign-callout {
   display: grid;
   grid-template-columns: 112px minmax(0, 1fr);
-  gap: 13px;
+  gap: 12px;
   margin-inline: 12px;
-  padding: 11px;
+  padding: 10px;
   border: 1px solid var(--line);
   border-radius: 4px;
   background: var(--callout);
 }
 
 .campaign-callout > img {
+  align-self: center;
+  display: block;
   width: 112px;
-  height: 144px;
+  height: auto;
   border-radius: 2px;
-  object-fit: cover;
-  object-position: 50% 75%;
 }
 
 .campaign-callout__body {
@@ -100,7 +95,7 @@ a {
 }
 
 .campaign-callout__period {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   color: var(--muted);
   font-size: 10px;
   font-weight: 600;
@@ -110,12 +105,12 @@ a {
 .campaign-callout strong {
   color: var(--ink);
   font-size: 13.5px;
-  line-height: 1.55;
+  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 
 .campaign-callout__benefit {
-  margin-top: 4px;
+  margin-top: 3px;
   color: #5d554b;
   font-size: 13px;
   font-weight: 700;
@@ -124,29 +119,6 @@ a {
 
 .campaign-callout__no-break {
   white-space: nowrap;
-}
-
-.campaign-callout__link {
-  margin-top: auto;
-  padding-top: 6px;
-  color: #45423d;
-  font-size: 11px;
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.campaign-callout__link b {
-  font-size: 12px;
-}
-
-.wire-note {
-  margin: 0;
-  padding: 14px 20px 20px;
-  color: var(--muted);
-  background: #fff;
-  font-size: 10px;
-  text-align: center;
 }
 
 @media (max-width: 374px) {
@@ -180,6 +152,6 @@ a {
 
   .campaign-callout > img {
     width: 98px;
-    height: 132px;
+    height: auto;
   }
 }
