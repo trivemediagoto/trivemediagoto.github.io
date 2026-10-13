@@ -72,13 +72,40 @@ body {
 .course-option-wire__image {
   aspect-ratio: 400 / 220;
   display: grid;
-  place-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  padding: 6px;
   color: var(--muted);
-  background: var(--wire-soft);
+  background: #fff;
   border: 1px solid var(--wire-line);
   font-size: 11px;
   line-height: 1.6;
   text-align: center;
+}
+
+.engraving-example {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--wire-soft);
+  border: 1px solid var(--wire-line);
+}
+
+.engraving-example__photo {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+}
+
+.engraving-example__label {
+  margin: 0;
+  padding: 3px 2px;
+  background: #fff;
+  border-top: 1px solid var(--wire-line);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 600;
 }
 
 .course-option-wire h1 {
@@ -97,6 +124,21 @@ body {
 .course-option-wire__description span {
   display: block;
   white-space: nowrap;
+}
+
+.course-download-button {
+  width: 100%;
+  margin-top: 17px;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #444;
+  background: #444;
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  cursor: default;
+  opacity: 1;
 }
 
 @media (max-width: 374px) {

@@ -58,12 +58,15 @@ button { font: inherit; }
 .column p { margin-bottom: 0; font-size: 13px; line-height: 1.9; }
 .column__photo { width: 170px; height: auto; margin-top: 15px; filter: grayscale(1); }
 
-.subhead { margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid #777; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; }
+.subhead { margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid #777; display: flex; align-items: baseline; justify-content: space-between; gap: 6px; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; }
+.subhead__price { flex: none; font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: 14px; white-space: nowrap; }
 .subhead--second { margin-top: 40px; }
 .sample-list { display: grid; grid-template-columns: 1fr 1fr; gap: 21px 12px; }
 .sample { min-width: 0; }
+.sample--icon { grid-column: 1 / -1; }
 .sample__image, .handdrawn-example__image { position: relative; width: 100%; display: grid; place-items: center; overflow: hidden; border: 1px solid #aaa; background: #e6e6e6; }
 .sample__image { height: 125px; }
+.sample--icon .sample__image { height: 90px; }
 .sample__image::before, .sample__image::after, .handdrawn-example__image::before, .handdrawn-example__image::after { position: absolute; width: 150%; height: 1px; background: #aaa; content: ""; }
 .sample__image::before, .handdrawn-example__image::before { transform: rotate(35deg); }
 .sample__image::after, .handdrawn-example__image::after { transform: rotate(-35deg); }
@@ -80,10 +83,12 @@ button { font: inherit; }
 .flow-list p { margin-bottom: 0; font-size: 13px; line-height: 1.85; }
 .download-button { width: 100%; margin-top: 14px; padding: 14px 16px; display: flex; justify-content: space-between; border: 1px solid #444; background: #444; color: #fff; font-size: 12px; cursor: default; opacity: 1; }
 
-.price-summary { padding: 0 0 17px; display: flex; align-items: baseline; gap: 15px; border-bottom: 1px solid #aaa; font-size: 13px; }
-.price-summary strong { font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; }
-.conditions__heading { margin: 24px 0 15px; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; line-height: 1.5; }
+.conditions__heading { margin: 0 0 15px; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; line-height: 1.5; }
 .conditions__heading--notice { margin-top: 40px; }
+.conditions-table { width: 100%; border-collapse: collapse; table-layout: fixed; border-top: 1px solid #888; font-size: 12px; line-height: 1.7; }
+.conditions-table th, .conditions-table td { padding: 12px 10px; border-bottom: 1px solid #bbb; vertical-align: top; text-align: left; overflow-wrap: anywhere; }
+.conditions-table th { width: 37%; background: #f1f1f1; font-weight: 500; }
+.conditions-table__note { display: block; margin-top: 6px; font-size: 11px; line-height: 1.6; }
 .conditions { margin: 0; padding-left: 1.3em; font-size: 13px; line-height: 1.9; }
 .conditions li + li { margin-top: 13px; }
 .conditions strong { font-weight: 700; }
