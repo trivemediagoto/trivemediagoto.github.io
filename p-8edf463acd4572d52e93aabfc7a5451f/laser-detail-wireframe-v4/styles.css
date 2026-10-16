@@ -81,6 +81,7 @@ button { font: inherit; }
 .flow-list__number { font-family: Georgia, serif; font-size: 22px; line-height: 1; }
 .flow-list h4 { margin-bottom: 8px; font-size: 15px; font-weight: 500; line-height: 1.5; }
 .flow-list p { margin-bottom: 0; font-size: 13px; line-height: 1.85; }
+.flow-list .flow-list__note { margin-top: 10px; font-size: 12px; line-height: 1.8; }
 .download-button { width: 100%; margin-top: 14px; padding: 14px 16px; display: flex; justify-content: space-between; border: 1px solid #444; background: #444; color: #fff; font-size: 12px; cursor: default; opacity: 1; }
 
 .conditions__heading { margin: 0 0 15px; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; line-height: 1.5; }
