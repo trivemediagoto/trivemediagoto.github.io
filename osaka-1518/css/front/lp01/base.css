@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap");
+html{
+    font-size: 62.5%;
+}
+body {
+    font-size: 1.4rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.75;
+}
+::placeholder {
+    color: #a8a8a8;
+}
+
+.sp_only {
+    display: none;
+}
+@media screen and (max-width: 640px) {
+    .pc_only {
+      display: none;
+    }
+    .sp_only {
+      display: block;
+    }
+}
+
+/*  ヘッダー レイアウト
+---------------------------------------------*/
+header.header img {
+    width: 100%;
+    max-width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    line-height: 0;
+}
+header.header {
+    position: relative;
+    z-index: 9990;
+    max-width: 750px;
+    margin: 0 auto;
+    height: 65px;
+    background: #fff;
+}
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 0 0 6.67%;
+}
+.header__logo {
+    width: 40%;
+}
+.header__logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.header__logo img {
+    display: block;
+}
+.header__vacant {
+    position: fixed;
+    top: 0;
+    right: 75px;
+    width: 75px;
+}
+.header__vacant a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.header__vacant img {
+    height: auto;
+}
+@media screen and (min-width: 641px){
+    .header__logo {
+        max-width: 150px;
+    }
+    .header__vacant {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 525px;
+        width: 75px;
+        margin: 0 auto;
+    }
+}
+
+
+/*  トークルーム ヘッダー レイアウト
+---------------------------------------------*/
+.header-talk {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 750px;
+    height: 60px;
+    background: #fff;
+}
+.header-talk .header-talk__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.header-talk .header-talk__inner .header-talk__logo {}
+.header-talk .header-talk__inner .header-talk__logo h1 {
+    display: flex;
+}
+.header-talk .header-talk__inner .header-talk__logo .arrow {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    transform: rotate(45deg);
+    margin: 6px 12px 0 18px;
+}
+.header-talk .header-talk__inner .header-talk__logo img {
+    width: 150px;
+}
+.header-talk .header-talk__inner .header-talk__menu {
+    display: flex;
+}
+.header-talk .header-talk__inner .header-talk__menu .menu {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: end;
+    align-items: center;
+    background: #685851;
+    width: 60px;
+    height: 60px;
+}
+.header-talk .header-talk__inner .header-talk__menu .menu.menu01 {
+    border-right: solid 1px #5e4e47;
+}
+.header-talk .header-talk__inner .header-talk__menu .menu.menu01 img {
+    width: 13px;
+}
+.header-talk .header-talk__inner .header-talk__menu .menu.menu02 img {
+    width: 20px;
+}
+.header-talk .header-talk__inner .header-talk__menu .menu .text {
+    font-family: 'Noto Serif JP', serif;
+    color: #fff;
+    font-size: 1rem;
+    margin: 4px 0 4px 0;
+}
+
+
+/*  ドロワーメニュー
+---------------------------------------------*/
+#drawer-checkbox {
+    display: none;
+}
+#drawer-icon {
+    cursor: pointer;
+    display: inline-block;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    width: 75px;
+    height: 75px;
+    background: #a58f86;
+}
+#drawer-icon span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("/osaka-1518/img/common/btn-nav-menu.png");
+    background-size: cover;
+    transition: all 0.2s ease-in-out;
+}
+#drawer-checkbox:checked ~ #drawer-icon span {
+    background-image: url("/osaka-1518/img/common/btn-nav-close.png");
+}
+#drawer-content {
+    visibility: hidden;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: -1;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    background: #fff;
+    transition: all .1s ease-in-out 0s;
+    transform: translateX(0);
+    opacity: 0;
+}
+#drawer-checkbox:checked ~ #drawer-content {
+    visibility: visible;
+    z-index: 998;
+    transition: all .4s ease-in-out 0s;
+    transform: translateX(0);
+    opacity: 1;
+}
+#drawer-close {
+    display: none;
+    position: fixed;
+    z-index: 39;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+#drawer-checkbox:checked ~ #drawer-close {
+    display: block;
+    opacity: 0.3;
+}
+@media screen and (min-width: 641px){
+    #drawer-icon {
+      cursor: pointer;
+      display: inline-block;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      right: 0;
+      left: 675px;
+      width: 75px;
+      height: 75px;
+      background: #a58f86;
+      margin: 0 auto;
+    }
+}
+
+
+/*  メニュー
+---------------------------------------------*/
+.gNav {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+}
+.gNav__head {
+    padding: 5.87% 0 0 6.67%;
+}
+.gNav__head a {
+    display: block;
+}
+.gNav__logo {
+    width: 40%;
+}
+.gNav__inner {
+    padding: 85px 10.67% 70px;
+}
+.gNav__btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 55px;
+}
+.gNav__btnItem {
+    width: 47%;
+}
+.gNav__menu {
+    margin: 0 0 60px;
+}
+.gNav__menu a {
+    display: block;
+}
+.gNav__title {
+    position: relative;
+    padding: 0 0 15px;
+    border-bottom: 1px solid #000;
+}
+.gNav__title.-link::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 17%;
+    width: 20px;
+    height: 20px;
+    background-image: url("/osaka-1518/img/common/icon-link-arrow03.png");
+    background-size: 100% 100%;
+}
+.gNav__titleEn {
+    display: block;
+    margin: 0 0 10px;
+    font-family: 'Hina Mincho', serif;
+    font-size: 1.6rem;
+    color: #a58f86;
+}
+.gNav__titleText {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.1rem;
+}
+.gNav__list {
+    margin: 40px 0 0;
+}
+.gNav__list li {
+    position: relative;
+    margin: 0 0 35px;
+    padding: 0 0 0 25px;
+    font-size: 1.6rem;
+}
+.gNav__list li::before {
+    position: absolute;
+    content: "";
+    top: 40%;
+    left: 0;
+    width: 15px;
+    height: 7px;
+    background-image: url("/osaka-1518/img/common/icon-link-arrow.png");
+    background-size: 100% 100%;
+}
+.gNav__sns {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 25px 0 0;
+}
+.gNav__sns li {
+    width: 28px;
+    margin: 0 30px 0 0;
+}
+.gNav__sns li:nth-of-type(2) {
+    width: 30px;
+}
+@media screen and (min-width: 641px){
+    .gNav__logo {
+      max-width: 150px;
+    }
+}
+
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+.inner {
+    margin: 0 8%;
+}
+.inner-large {
+    margin: 0 4%;
+}
+.page-header {
+    padding: 20px 0 35px 0;
+}
+.page-header .page-title {
+    margin-bottom: 18px;
+}
+.page-header .page-title .en {
+    font-size: 1.6rem;
+    font-family: 'Hina Mincho', serif;
+    color: #a58f86;
+}
+.page-header .page-title .ja {
+    font-size: 2.7rem;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 1.4;
+}
+.page-header .page-description .color {
+    color: #b33636;
+}
+
+
+/*
+ * パンクズ
+ */
+.breadcrumb {
+    font-size: 1.2rem;
+    background: #ece9e2;
+    padding: 10px 0;
+}
+
+
+/* 
+ * フッター
+ */
+.footer {
+    padding: 13.33% 8% 9.33%;
+    background: #f4f2ec;
+}
+.footer.footer-small {
+    padding: 50px 0 0 0;
+    background: #fff;
+}
+.footer img {
+    width: 100%;
+    max-width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    line-height: 0;
+}
+.footer .btn {
+    position: relative;
+    display: block;
+    width: 74.67%;
+    padding: 4.5% 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #a58f86;
+    font-family: 'Noto Serif JP', serif;
+    color: #fff;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+.footer .btn::after {
+    position: absolute;
+    content: "";
+    top: 40%;
+    right: 5.53%;
+    width: 8px;
+    height: 12px;
+    background-image: url("/osaka-1518/img/common/icon-btn-arrow.png");
+    background-size: 100% 100%;
+}
+.footer__btn {
+    margin: 0 0 13.33%;
+}
+.footer__btn .btn {
+    margin-bottom: 6.67%;
+}
+
+.footer__logo {
+    width: 54.67%;
+    margin: 0 auto 9.33%;
+}
+
+.footer__access {
+    margin: 0 0 11.33%;
+}
+
+.footer__access dl {
+    display: flex;
+}
+
+.footer__access dl:first-child dt {
+    padding: 0 0 5.33%;
+}
+
+.footer__access dt {
+    width: 14.67%;
+    border-right: 1px solid #000;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+.footer__access dd {
+    width: calc(100% - 14.67%);
+    padding: 0 0 0 4%;
+    line-height: 1.5;
+}
+
+.footer__access dd a {
+    color: #a58f86;
+    text-decoration: underline;
+}
+
+.footer__recruit {
+    width: 100%;
+    margin: 0 auto 10.67%;
+}
+.footer__sns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 9.07%;
+}
+
+.footer__sns li {
+    width: 7.33%;
+}
+
+.footer__sns li:nth-child(2) {
+    width: 6.4%;
+    margin: 0 9.33%;
+}
+
+.footer__copyright {
+    display: block;
+    color: #7b7b7b;
+    font-size: 1rem;
+    text-align: center;
+}
+
+@media screen and (min-width: 641px) {
+    .footer__access dl {
+        display: flex;
+    }
+
+    .footer__access dt {
+        width: 54px;
+        border-right: 1px solid #000;
+        font-weight: 600;
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+
+    .footer__access dd {
+        width: calc(100% - 54px);
+        padding: 0 0 0 17px;
+        line-height: 1.5;
+    }
+}

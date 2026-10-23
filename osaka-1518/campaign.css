@@ -1,0 +1,57 @@
+/* 告知の基準幅733.411px。元PSDの形状・文字の輪郭をSVGで保持する。 */
+.lp .campaign-section { --cp-green:#758253; padding:4% 1.0667% 8%; color:#222; background-color:#f4f2ec; font-family:"Noto Sans JP",sans-serif; }
+.lp .campaign-card { position:relative; container-type:inline-size; width:100%; height:auto; aspect-ratio:733.411 / 1357.991845; --ribbon-extra:0cqw; background:url('/osaka-1518/img/campaign-1518/frame-v4.svg') center/100% 100% no-repeat; }
+.lp .campaign-card p, .lp .campaign-card h2, .lp .campaign-card h3, .lp .campaign-card dl { margin:0; }
+.lp .campaign-shop { position:absolute; inset:0 0 auto; width:100%; }
+.lp .campaign-shop img, .lp .campaign-dates img { display:block; width:100%; height:auto; }
+.lp .campaign-ribbon { position:absolute; top:16.36cqw; left:0; width:100%; height:15.5cqw; box-sizing:border-box; display:flex; align-items:baseline; justify-content:center; gap:2.2cqw; padding:2cqw 2cqw 1.5cqw; color:#fff; background:none; font-family:"Noto Serif JP",serif; font-weight:500; text-align:center; }
+.lp .campaign-number { display:block; white-space:nowrap; font-size:8.45cqw; line-height:1.15; letter-spacing:.035em; }
+.lp .campaign-number ruby { ruby-align:center; }
+.lp .campaign-number rt { font-size:1.8cqw; font-weight:400; letter-spacing:.26em; }
+.lp .campaign-unit { padding-left:1cqw; font-size:4.22cqw; }
+.lp .campaign-name { display:block; white-space:nowrap; font-size:4.22cqw; line-height:1.4; font-weight:400; letter-spacing:.05em; }
+.lp .campaign-dates { position:absolute; left:0; top:calc(30.1cqw + var(--ribbon-extra)); width:100%; }
+.lp .campaign-term-note { position:absolute; top:calc(41.5cqw + var(--ribbon-extra)); left:7%; width:86%; text-align:center; font-size:2.95cqw; line-height:1.6; white-space:nowrap; }
+.lp .campaign-photo-frame { position:absolute; left:17.14%; top:calc(49.3cqw + var(--ribbon-extra)); width:65.59%; height:40.91cqw; overflow:hidden; border-radius:1.1cqw; }
+.lp .campaign-photo-frame .campaign-photo { position:absolute; left:51.5%; top:0; width:115%; max-width:none; height:auto; transform:translateX(-50%); }
+.lp .campaign-thanks { position:absolute; top:calc(93.2cqw + var(--ribbon-extra)); left:8%; width:84%; font-family:"Hiragino Mincho ProN","Noto Serif JP",serif; font-size:3.8cqw; line-height:1.8; text-align:center; }
+.lp .campaign-offer { position:absolute; top:calc(100.9cqw + var(--ribbon-extra)); left:8%; width:84%; display:flex; align-items:baseline; justify-content:center; gap:1.7cqw; color:#242820; font-family:"Hiragino Mincho ProN","Noto Serif JP",serif; line-height:1.15; }
+.lp .campaign-max { font-size:6.8cqw; }
+.lp .campaign-offer strong { font-size:13.1cqw; font-weight:500; font-variant-numeric:lining-nums; letter-spacing:-.04em; }
+.lp .campaign-percent, .lp .campaign-off { font-size:1em; }
+.lp .campaign-off { margin-left:.08em; }
+.lp .campaign-price-note { position:absolute; top:calc(114.3cqw + var(--ribbon-extra)); left:10%; width:80%; font-size:3.35cqw; line-height:1.6; text-align:center; }
+.lp .campaign-details { position:absolute; top:calc(125.1cqw + var(--ribbon-extra)); left:11.14%; width:77.72%; font-size:3.55cqw; font-weight:400; line-height:1.5; }
+.lp .campaign-target { white-space:nowrap; letter-spacing:-.035em; }
+.lp .campaign-courses { margin-top:2cqw; }
+.lp .campaign-courses h3 { font-size:inherit; font-weight:400; }
+.lp .campaign-courses dl > div { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:1.5cqw; padding:1.3cqw 0; }
+.lp .campaign-courses dl > div + div { padding-top:1.8cqw; border-top:1px solid #d7ddcd; }
+.lp .campaign-courses dt { font-size:inherit; line-height:1.5; font-weight:400; }
+.lp .campaign-courses dt > span { display:block; font-size:.9em; }
+.lp .campaign-courses dd { display:flex; align-items:baseline; gap:.5cqw; margin:0; white-space:nowrap; color:#415032; }
+.lp .campaign-courses dd strong { font-family:"Hiragino Mincho ProN","Noto Serif JP",serif; font-size:5.9cqw; line-height:1.2; font-weight:500; }
+.lp .campaign-courses dd strong span { font-size:.6em; }
+.lp .campaign-courses dd > span { font-size:3cqw; }
+.lp .campaign-cta { display:block; width:86.45%; margin:1.5% auto 0; line-height:0; text-decoration:none; transition:opacity .15s; }
+.lp .campaign-cta img { display:block; width:100%; height:auto; }
+.lp .campaign-cta:hover { opacity:.85; }
+.lp .campaign-cta:focus-visible { outline:3px solid #0b57d0; outline-offset:4px; border-radius:100px; }
+html { scroll-behavior:smooth; }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .lp .campaign-cta { transition:none; } }
+
+@media(max-width:640px) {
+ .lp .campaign-card { aspect-ratio:733.411 / 1486.33877; --ribbon-extra:17.5cqw; background-image:url('/osaka-1518/img/campaign-1518/frame-v4-mobile.svg'); }
+ .lp .campaign-ribbon { height:33cqw; flex-direction:column; align-items:center; justify-content:center; gap:1.5cqw; padding:3cqw 2cqw; }
+ .lp .campaign-number { font-size:12cqw; }
+ .lp .campaign-number rt { font-size:2.6cqw; }
+ .lp .campaign-unit { font-size:6cqw; }
+ .lp .campaign-name { font-size:6cqw; }
+}
+
+.lp .campaign-ribbon .campaign-ribbon-shape { position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+.lp .campaign-ribbon > span { position:relative; z-index:1; }
+
+@media(max-width:640px) { .lp .campaign-ribbon > span { transform:translateY(-.65cqw); } }
+
+.local-preview-note{max-width:750px;margin:0 auto;padding:16px 24px;background:#f5f2ec;color:#555;font:13px/1.8 sans-serif;text-align:center}
