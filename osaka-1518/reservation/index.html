@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="大阪中崎町の1,518（いちごいちえ）本突破キャンペーン。2027年1月5日〜2月28日のご制作日が対象。結婚指輪・婚約指輪・アニバーサリー10%OFF、3本制作15%OFF（指輪の本体代のみ）。">
+
+    <title>大阪中崎町 1,518本突破キャンペーン 予約フォーム｜鎌倉彫金工房</title>
+
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"/>    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap"/>
+    <!-- Theme style -->
+    <!-- reset.css destyle -->
+    <link rel="stylesheet" href="/osaka-1518/reservation/css/front/destyle.css"/>    <!-- vue 3 Datapicker css -->
+    <link rel="stylesheet" href="/osaka-1518/reservation/assets/vendor/7a47ee33c78995a9.css"/>            <link rel="stylesheet" href="/osaka-1518/reservation/css/front/base.css"/>    
+            <link rel="stylesheet" href="/osaka-1518/reservation/css/front/reserves/parts.css"/>        <script src="/osaka-1518/reservation/js/front/jquery.js"></script>    <script src="/osaka-1518/reservation/assets/vendor/c7f4bce55d4229f2.js"></script>    <!-- vue 3 Datapicker js -->
+    <script src="/osaka-1518/reservation/assets/vendor/507215bed4fac95d.js"></script>    <script src="/osaka-1518/reservation/assets/vendor/fda561d38394f1c7.js"></script>    <script src="/osaka-1518/reservation/assets/vendor/ac82083f08b38e5c.js"></script>
+    <!-- Full Calendar -->
+    <link rel="stylesheet" href="/osaka-1518/reservation/assets/vendor/0a5057e3c1fd90c2.css">
+    <script src="/osaka-1518/reservation/assets/vendor/0bf9db8345793d9d.js"></script>
+
+    <script src="/osaka-1518/reservation/js/front/functions.js"></script>    <script src="/osaka-1518/reservation/js/front/common.js"></script>    <script src="/osaka-1518/reservation/js/front/jquery.autoKana.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/osaka-1518/reservation/js/front/html5shiv.js"></script>    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        
+        
+
+                    
+    <!-- Google Tag Manager -->
+        
+        <!-- End Google Tag Manager -->
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="form-action 'none'; connect-src 'none'; base-uri 'self'">
+<link rel="stylesheet" href="/osaka-1518/reservation/campaign.css?v=3">
+<link rel="canonical" href="https://trivemediagoto.github.io/osaka-1518/reservation/">
+<meta property="og:title" content="大阪中崎町 1,518本突破キャンペーン 予約フォーム｜鎌倉彫金工房">
+<meta property="og:description" content="大阪中崎町の1,518（いちごいちえ）本突破キャンペーン。2027年1月5日〜2月28日のご制作日が対象。結婚指輪・婚約指輪・アニバーサリー10%OFF、3本制作15%OFF（指輪の本体代のみ）。">
+<meta property="og:url" content="https://trivemediagoto.github.io/osaka-1518/reservation/">
+</head>
+
+<body id="container">
+
+    <!-- Google Tag Manager (noscript) -->
+        
+        <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+                            <header class="header">
+    <div class="header__inner">
+        <div class="header__logo">
+            <a href="https://kamakura-chokin.com/"><h1><img src="/osaka-1518/reservation/img/common/kamakura-logo.png" alt="鎌倉彫金工房"></h1></a>
+        </div>
+    </div>
+        </header>        
+        <div class="content">
+            
+<aside class="local-preview-note">デザイン確認用｜店舗・コースの表示切替ができます。空席情報の取得・予約送信は行いません。</aside><div v-cloak id="app" class="page-reserves">
+    <div v-if="showTimeModal" class="modal time-modal">
+        <div class="modal-body">
+            <div class="date">{{ reserveDateTimeDisplay }}</div>
+            <div class="description">時間を選択してください</div>
+            <div class="times">
+                <template v-for="selectTimeItem in selectTimeItems">
+                    <div v-if="selectTimeItem.active" class="time active" @click="selectTime(selectTimeItem.value)">{{ selectTimeItem.name }}</div>
+                    <div v-else class="time">{{ selectTimeItem.name }}</div>
+                </template>
+            </div>
+        </div>
+        <div class="overlay" @click="closeTimeModal"></div>
+    </div>
+
+    <!-- キャンセル待ちモーダル -->
+    <div v-if="showReminderModal" class="modal reminder-modal">
+        <div class="close-area" @click="closeReminderModal">
+            <div class="close-icon">
+                <span class="batsu"></span>
+            </div>
+            <div class="close-txt">閉じる</div>
+        </div>
+        <div class="modal-body">
+            <div v-show="showReminderSuccess==false" class="reminder-add">
+                <div class="reminder-head">
+                    <div class="inner-large">
+                        <div class="title">キャンセル通知</div>
+                        <div class="sub-title">
+                            <div>指定した期間中の予約にキャンセルが発生した場合、</div>
+                            <div>LINEまたはメールにてお知らせします。</div>
+                        </div>
+                        <div class="info">
+                            <div class="icon-alert"><img src="/osaka-1518/reservation/img/reserves/icon-alert02.png"></div>
+                            <div class="text">
+                                <div>キャンセル通知はキャンセルが発生したことをお知らせするものであり、<span class="bold">受け取った時点では予約は完了しておりません。</span></div>
+                                <div>アクセスするタイミングによっては再度満席となっている場合がございますので、予めご了承ください。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="reminder-form" ref="form2">
+                    <input type="hidden" name="shop_id" v-model="cancelShopId" />
+                    <input type="hidden" name="course_type" v-model="cancelCourseType" />
+                    <input v-model="cancelStartDate" type="hidden" name="start_date">
+                    <input v-model="cancelEndDate" type="hidden" name="end_date">
+
+                    <section class="section">
+                        <div class="section-label"><div class="inner-large">店舗を選択してください</div></div>
+                        <div class="inner-large">
+                            <div class="shops">
+                                <div
+                                    :class="{ 'shop': true, 'active': cancelShopId == 1 }"
+                                    @click="changeCancelShop(1)">
+                                    <div class="shop-title">本店（鎌倉）</div>
+                                </div>
+                                <div
+                                    :class="{ 'shop': true, 'active': cancelShopId == 3 }"
+                                    @click="changeCancelShop(3)">
+                                    <div class="shop-title">横浜元町</div>
+                                </div>
+                                <div
+                                    :class="{ 'shop': true, 'active': cancelShopId == 2 }"
+                                    @click="changeCancelShop(2)">
+                                    <div class="shop-title">大阪中崎町</div>
+                                </div>
+                                <div
+                                    :class="{ 'shop': true, 'active': cancelShopId == 4 }"
+                                    @click="changeCancelShop(4)">
+                                    <div class="shop-title">東京蔵前</div>
+                                </div>
+                            </div>
+                            <div v-if="errors.cancel_shop_id" class="error-message">店舗を入力してください</div>
+                        </div>
+                    </section>
+
+
+                    <section class="section">
+                        <div class="section-label"><div class="inner-large">コースを選択してください</div></div>
+                        <div class="inner-large">
+                            <div class="course-type">
+                                <div :class="{ 'course-box': true, 'active': cancelCourseType == 1 }"
+                                    @click="changeCancelCourseType(1)">
+                                    <div class="title">ブライダルのキャンセル通知を受け取る</div>
+                                    <div class="course-label">対象コース</div>
+                                    <div class="courses">手作り結婚指輪・婚約指輪コース（3本制作）、手作り結婚指輪コース、手作り婚約指輪コース</div>
+                                </div>
+                                <div
+                                    :class="{ 'course-box': true, 'active': cancelCourseType == 2 }"
+                                    @click="changeCancelCourseType(2)">
+                                    <div class="title">ペアリングのキャンセル通知を受け取る</div>
+                                    <div class="course-label">対象コース</div>
+                                    <div class="courses">手作りペアリングコース</div>
+                                </div>
+                            </div>
+                            <div v-if="errors.cancel_course_type" class="error-message">コースを選択してください</div>
+                        </div>
+                    </section>
+
+
+                    <section class="section section03">
+                        <div class="section-label"><div class="inner-large">お客さま情報</div></div>
+                        <div class="inner-large">
+                            <div class="item">
+                                <div class="label"><span class="tag required">必須</span>お名前（ふりがな）</div>
+                                <div :class="{'input': true, 'text': true, 'error': errors.cancel_name_kana}">
+                                    <input v-model="cancelNameKana" type="text" name="cancel_name_kana" placeholder="かまくらちょうこ" maxlength="24" />
+                                    <div v-if="errors.cancel_name_kana" class="error-message">ふりがなを入力してください</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label"><span class="tag required">必須</span>制作される方の人数</div>
+                                <div :class="{'input': true, 'select': true, 'error': errors.cancel_person}">
+                                    <select name="cancel_person" class="" v-model="cancelPerson">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in selectPersonItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                    <div v-if="errors.cancel_person" class="error-message">人数を選択してください</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label"><span class="tag required">必須</span>キャンセル待ち期間</div>
+                                <div :class="{'input': true, 'date': true, 'error': errors.cancel_start_date}">
+                                    <Datepicker
+                                        v-model="cancelStartDate"
+                                        locale="ja"
+                                        auto-apply
+                                        :key="cancelDatePickerStartKey"
+                                        :format="'yyyy-MM-dd'"
+                                        :model-type="'yyyy-MM-dd'"
+                                        :enable-time-picker="false"
+                                        :allowed-dates="cancelAllowedDates"
+                                    ></Datepicker>
+                                    <span>から</span>
+                                    <div v-if="errors.cancel_start_date" class="error-message">開始日を選択してください</div>
+                                </div>
+                                <div :class="{'input': true, 'date': true, 'error': errors.cancel_end_date}">
+                                    <Datepicker
+                                        v-model="cancelEndDate"
+                                        locale="ja"
+                                        auto-apply
+                                        :key="cancelDatePickerEndKey"
+                                        :format="'yyyy-MM-dd'"
+                                        :model-type="'yyyy-MM-dd'"
+                                        :enable-time-picker="false"
+                                        :allowed-dates="cancelAllowedDates"
+                                    ></Datepicker>
+                                    <span>まで</span>
+                                    <div v-if="errors.cancel_end_date" class="error-message">終了日を選択してください</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section class="section">
+                        <div class="section-label"><div class="inner-large">キャンセル通知に関する確認事項</div></div>
+                        <div class="inner-large">
+                            <div class="notice">
+                                <p>● 90日後までの期間指定が可能です。</p>
+                                <p>● 時間帯の指定はできません。</p>
+                                <p>● ひとつのメールアドレスでお申し込みいただけるキャンセル通知はおひとつのみです。すでに登録されているキャンセル通知の期間を変更する場合は、同じメールアドレスで再度お申し込みください。</p>
+                                <p>● 既に別日をご予約いただいているお客さまは、予約を変更またはキャンセルしていただく必要がございます。</p>
+                                <p>● 一度に複数コースのキャンセル待ちはお受けできません。</p>
+                                <p>● 携帯電話のアドレスを入力されている場合は「info@kamakura-chokin.com」からのメールが届くよう設定の変更をお願いします。</p>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section class="section">
+                        <div class="section-label"><div class="inner-large">通知の受け取り方法をお選びください</div></div>
+                        <div class="inner-large">
+                            <div class="send-area">
+                                <div class="send-line">
+                                    <div class="sp_only">
+                                        <div class="send-header">LINE</div>
+                                        <div class="send-text">鎌倉彫金工房LINE公式アカウントを「友だち追加」して、トークの入力欄に記載されているテキストをそのまま送信してください。</div>
+                                        <div class="line-submit" @click="lineSubmit"><img src="/osaka-1518/reservation/img/reserves/icon-line03.png"><span>LINEで通知を受け取る</span></div>
+                                    </div>
+                                    <div class="pc_only">
+                                        <div class="send-header">LINE</div>
+                                        <div class="send-text">スマートフォンのみのサービスです。ご希望の方は、QRコードを読み取り、スマートフォンサイトからご登録をお願いいたします。</div>
+                                        <div class="line-qr"><img src="/osaka-1518/reservation/img/reserves/img-qr-reserve.png"></div>
+                                    </div>
+                                </div>
+                                <div class="send-or">OR</div>
+                                <div class="send-mail">
+                                    <div class="send-header">MAIL</div>
+                                    <div class="label"><span class="tag required">必須</span>メールアドレス</div>
+                                    <input v-model="cancelEmail" type="text" name="cancel_email" placeholder="タイプミスにご注意ください">
+                                    <div v-if="errors.cancel_email" class="error-message">メールアドレスを入力してください</div>
+                                    <div class="mail-submit" @click="mailSubmit"><img src="/osaka-1518/reservation/img/reserves/icon-mail03.png"><span>メールで通知を受け取る</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+                <div class="btn-close" @click="closeReminderModal">
+                    <div class="btn-icon"></div>
+                    <div class="btn-txt">閉じる</div>
+                </div>
+            </div><!-- .reminder-add -->
+
+            <div v-show="showReminderSuccess" class="reminder-success">
+                <div class="reminder-head">
+                    <div class="inner-large">
+                        <div class="title">キャンセル通知</div>
+                        <div class="sub-title">
+                            <div>入力いただいた下記メールアドレスに</div>
+                            <div>確認メールを送信致しました。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-large">
+                    <div class="section">
+                        <div class="reminder-email">{{ responseCancelEmail }}</div>
+                        <div class="reminder-course">{{ responseCancelCourseName }}</div>
+                        <div class="reminder-term">{{ responseCancelTerm }}</div>
+                    </div>
+                    <div class="section">
+                        <p>24時間経っても送られてこない場合には下記よりお問い合わせください。</p>
+                        ※キャンセル通知待ちの情報を変更したい場合は同じメールアドレス、コース名で再度ご予約いただくと情報が上書きされます。
+                        <div><a href="/osaka-1518/reservation/reserves/add">> キャンセル通知トップへ</a></div>
+                    </div>
+                    <a href="https://kamakura-chokin.com/" class="" target="_blank">鎌倉彫金工房トップへ</a>
+                </div>
+            </div><!-- .reminder-success -->
+        </div>
+        <div class="overlay" @click="closeReminderModal"></div>
+    </div>
+
+    <div class="inner">
+        <div class="page-header">
+            <div class="page-title">
+                <div class="en">Reserve</div>
+                <div class="ja">空席案内・ご予約</div>
+            </div>
+            <div class="page-description">鎌倉彫金工房の空席確認・ご予約はこちらのページから。店舗を選択後、ご希望のコース・日時など必要事項を入力してご予約ください。</div>
+        </div>
+        <div v-if="Object.keys(errors).length > 0" class="page-error">入力内容を確認してください</div>
+            </div>
+
+    <!-- // 年末年始の休業 -->
+    <section class="reserves-alert">
+        <div class="alert"><img src="/osaka-1518/reservation/img/reserves/icon-alert.png"><a href="https://kamakura-chokin.com/94605" target="_blank">年末年始休業と年内のお渡しについて</a></div>
+    </section>
+    <!-- // 年末年始の休業 -->
+
+    <!-- // Gmailのお知らせ -->
+    <!--
+    <section class="reserves-alert">
+        <div class="alert"><img src="/osaka-1518/reservation/img/reserves/icon-alert.png"><a href="https://kamakura-chokin.com/67328" target="_blank">【重要】Gmailをご利用のお客様へ</a></div>
+    </section>
+    -->
+    <!-- // Gmailのお知らせ -->
+
+    <form method="post" accept-charset="utf-8" @keydown.enter.prevent="" @submit.prevent="validateForm" ref="form1" action="#">
+        <input type="hidden" name="shop_id" v-model="shopId" />
+        <input type="hidden" name="reserve_datetime" v-model="reserveDateTime"/>
+        <input type="hidden" name="is_baby" v-model="isBaby"/>
+        <input type="hidden" name="is_wheelchair" v-model="isWheelchair"/>
+
+
+        <!-- 店舗選択 -->
+        <section class="section section01">
+            <div class="section-label"><div class="inner">店舗を選択してください</div></div>
+            <div class="inner">
+                <div class="shops">
+                    <div
+                        :class="{ 'shop': true, 'active': shopId == 1 }"
+                        @click="changeShop(1)">
+                        <div class="shop-image"><img src="/osaka-1518/reservation/img/reserves/shop1.jpg"></div>
+                        <div class="shop-info">
+                            <div class="shop-title">鎌倉</div>
+                            <div class="shop-desc">
+                                <div>鎌倉彫金工房 本店</div>
+                                <div>神奈川県鎌倉市御成町14-29</div>
+                                <div>鎌倉駅西口より徒歩3分</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        :class="{ 'shop': true, 'active': shopId == 3 }"
+                        @click="changeShop(3)">
+                        <div class="shop-image"><img src="/osaka-1518/reservation/img/reserves/shop3.jpg"></div>
+                        <div class="shop-info">
+                            <div class="shop-title">横浜元町</div>
+                            <div class="shop-desc">
+                                <div>鎌倉彫金工房 横浜元町</div>
+                                <div>神奈川県横浜市中区元町4丁目163-3 2F</div>
+                                <div>※階段利用のみ（エレベーターなし）</div>
+                                <div>元町・中華街駅5番出口（元町口）より徒歩5分</div>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="shop-notice">
+                            <div>※2025年10月11日より下記に移転いたします</div>
+                            <div>神奈川県横浜市中区元町4丁目163-3 2F</div>
+                            <div>※階段利用のみ（エレベーターなし）</div>
+                            <div>（元町・中華街駅より徒歩5分）</div>
+                        </div>
+                        -->
+                    </div>
+                                        <div
+                        :class="{ 'shop': true, 'active': shopId == 2, 'shop-osaka-campaign': true }" id="osaka-campaign" @click="changeShop(2)">
+<div class="campaign-ribbon" aria-label="1,518（いちごいちえ）本突破キャンペーン実施中">
+  <div class="ribbon-left" aria-hidden="true"></div>
+  <div class="ribbon-center"><span class="ribbon-title"><span>1,518（いちごいちえ）本突破</span><span>キャンペーン実施中</span></span></div>
+  <div class="ribbon-right" aria-hidden="true"></div>
+  <span class="campaign-discount" aria-label="最大15%OFF"><span class="discount-max">最大</span><span class="discount-number">15</span><span class="discount-percent">%</span><span class="discount-off">OFF</span></span>
+</div>
+<div class="campaign-period">
+  <div class="campaign-period-date">期間：2027年1月5日（火）〜2月28日（日）</div>
+  <div class="campaign-period-note">※ご制作いただく日が対象です</div>
+</div>
+                                                <div class="shop-image"><img src="/osaka-1518/reservation/img/reserves/shop2.jpg"></div>
+                        <div class="shop-info">
+                            <div class="shop-title">大阪中崎町</div>
+                            <div class="shop-desc">
+                                <div>鎌倉彫金工房 大阪中崎町</div>
+                                <div>大阪市北区中崎2丁目6-19</div>
+                                <div>中崎町駅より徒歩4分</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        :class="{ 'shop': true, 'active': shopId == 4 }"
+                        @click="changeShop(4)">
+                        <div class="shop-image"><img src="/osaka-1518/reservation/img/reserves/shop4.jpg"></div>
+                        <div class="shop-info">
+                            <div class="shop-note">2026.8.3 OPEN !</div>
+                            <div class="shop-title">東京蔵前</div>
+                            <div class="shop-desc">
+                                <div>鎌倉彫金工房 東京蔵前</div>
+                                <div>東京都台東区駒形1丁目4-19</div>
+                                <div>都営大江戸線【 蔵前駅 】A6出口より徒歩4分</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="errors.shop_id" class="error-message">店舗を入力してください</div>
+            </div>
+        </section>
+
+
+        <!-- コース・日時選択 -->
+        <section v-if="showCourseSection" id="section02" class="section section02">
+            <div class="section-label"><div class="inner">コースと日時を選択してください</div></div>
+            <div class="inner">
+                <div class="course-select">
+                    <div class="label"><span class="tag required">必須</span>コース</div>
+                    <div :class="{'input': true, 'select': true, 'error': errors.shop_id}">
+                        <select name="course_id" class="" v-model="courseId" @change="changeCourse">
+                            <option value="">コースを選択</option>
+                            <option
+                                v-for="item in selectCourseItems"
+                                :value="item.id"
+                                :key="item.id"
+                            >
+                                {{ item.name }}
+                            </option>
+                        </select>
+                        <div v-if="errors.course_id" class="error-message">コースを選択してください</div>
+                    </div>
+                    <div v-if="showCourseDescription">
+                        <div v-if="courseId==3" class="course-description">
+                            <div class="title">手作り結婚指輪・婚約指輪コース（3本制作）</div>
+                            <div class="description">
+                                <p>ご予約の日にプラチナ（Pt900）またはゴールド（K18）の指輪を3本制作するコースです。</p>
+                                <p>※こちらのコースではシルバー素材をお選びいただけません。</p>
+                                <p>※見学をご希望の方は「結婚指輪・婚約指輪 ご見学＆デザイン相談」コースをお選びください。</p>
+                            </div>
+                            <!-- 価格シミュレーターへの誘導（一時非表示）
+                            <div class="simulator-notice">
+                                <div class="simulator-title">【重要：価格に関する大切なお知らせ】</div>
+                                <div class="simulator-text">地金相場の変動により価格が日々変わるため、ご予約前に必ず各コースページの「価格シミュレーター」で最新料金をご確認ください。</div>
+                                <div class="simulator-text">※ペアリングコースは固定価格のため変動いたしません。</div>
+                                <div class="simulator-link"><a href="https://kamakura-chokin.com/course/marriage-engagement/#sample" target="_blank">手作り結婚指輪・婚約指輪コース（3本制作）の<br>価格をシミュレーションする</a></div>
+                            </div>
+                            -->
+                        </div>
+                        <div v-if="courseId==1" class="course-description">
+                            <div class="title">手作り結婚指輪コース</div>
+                            <div class="description">
+                                <p>ご予約の日にプラチナ（Pt900）またはゴールド（K18）の指輪を2本制作するコースです。</p>
+                                <p>※こちらのコースではシルバー素材をお選びいただけません。</p>
+                                <p>※見学をご希望の方は「結婚指輪・婚約指輪 ご見学＆デザイン相談」コースをお選びください。</p>
+                            </div>
+                            <!-- 価格シミュレーターへの誘導（一時非表示）
+                            <div class="simulator-notice">
+                                <div class="simulator-title">【重要：価格に関する大切なお知らせ】</div>
+                                <div class="simulator-text">地金相場の変動により価格が日々変わるため、ご予約前に必ず各コースページの「価格シミュレーター」で最新料金をご確認ください。</div>
+                                <div class="simulator-text">※ペアリングコースは固定価格のため変動いたしません。</div>
+                                <div class="simulator-link"><a href="https://kamakura-chokin.com/course/marriage/#sample" target="_blank">手作り結婚指輪コースの<br>価格をシミュレーションする</a></div>
+                            </div>
+                            -->
+                        </div>
+                        <div v-if="courseId==2" class="course-description">
+                            <div class="title">手作り婚約指輪コース</div>
+                            <div class="description">
+                                <p>ご予約の日にプラチナ（Pt900）またはゴールド（K18）の指輪を1本制作するコースです。</p>
+                                <p>※こちらのコースではシルバー素材をお選びいただけません。</p>
+                                <p>※見学をご希望の方は「結婚指輪・婚約指輪 ご見学＆デザイン相談」コースをお選びください。</p>
+                            </div>
+                            <!-- 価格シミュレーターへの誘導（一時非表示）
+                            <div class="simulator-notice">
+                                <div class="simulator-title">【重要：価格に関する大切なお知らせ】</div>
+                                <div class="simulator-text">地金相場の変動により価格が日々変わるため、ご予約前に必ず各コースページの「価格シミュレーター」で最新料金をご確認ください。</div>
+                                <div class="simulator-text">※ペアリングコースは固定価格のため変動いたしません。</div>
+                                <div class="simulator-link"><a href="https://kamakura-chokin.com/course/engage/#sample" target="_blank">手作り婚約指輪コースの<br>価格をシミュレーションする</a></div>
+                            </div>
+                            -->
+                        </div>
+                        <div v-if="courseId==8" class="course-description">
+                            <div class="title">ダイヤモンドプロポーズコース</div>
+                            <div class="description">
+                                <p>ご予約の日に、専用ケースに入ったダイヤモンドのルース（裸石）を購入いただけるコースです。</p>
+                                <p>※指輪の制作は行いません。</p>
+                                <p>※購入したダイヤモンドは手作り婚約指輪のメインダイヤとしてご利用いただけます（「手作り結婚指輪・婚約指輪コース（3本制作）」または「手作り婚約指輪コース」のご予約が別途必要です）。</p>
+                                <p>※見学をご希望の方は「結婚指輪・婚約指輪 ご見学＆デザイン相談」コースをお選びください。</p>
+                            </div>
+                        </div>
+                        <div v-if="courseId==9" class="course-description">
+                            <div class="title">手作りアニバーサリーコース</div>
+                            <div class="description">
+                                <p>ご予約の日にプラチナ（Pt900）またはゴールド（K18）の指輪を1〜2本制作するコースです。</p>
+                                <p>※こちらのコースではシルバー素材をお選びいただけません。</p>
+                                <p>※見学をご希望の方は「結婚指輪・婚約指輪 ご見学＆デザイン相談」コースをお選びください。</p>
+                            </div>
+                            <!-- 価格シミュレーターへの誘導（一時非表示）
+                            <div class="simulator-notice">
+                                <div class="simulator-title">【重要：価格に関する大切なお知らせ】</div>
+                                <div class="simulator-text">地金相場の変動により価格が日々変わるため、ご予約前に必ず各コースページの「価格シミュレーター」で最新料金をご確認ください。</div>
+                                <div class="simulator-text">※ペアリングコースは固定価格のため変動いたしません。</div>
+                                <div class="simulator-link"><a href="https://kamakura-chokin.com/course/anniversary/#sample" target="_blank">手作りアニバーサリーコースの<br>価格をシミュレーションする</a></div>
+                            </div>
+                            -->
+                        </div>
+                        <div v-if="courseId==10 && (shopId==1 || shopId==3 || shopId==4)" class="course-description">
+                            <div class="title">手作りペアリングコース</div>
+                            <div class="description">
+                                <p>ご予約の日にゴールド（K10）またはシルバー（SV950）の指輪を1〜2本制作するコースです。</p>
+                                <p>※見学をご希望の方は「結婚指輪・婚約指輪 ご見学＆デザイン相談」コースをお選びください。</p>
+                            </div>
+                        </div>
+                        <div v-if="courseId==7" class="course-description">
+                            <div class="title">結婚指輪・婚約指輪 ご見学＆デザイン相談</div>
+                            <div class="description">
+                                <p>ご予約の日に、工房の様子をご見学いただきながら、指輪のデザインや制作について指輪職人に直接ご質問・ご相談いただけるコースです。</p>
+                                <p>※指輪の制作は行いません。</p>
+                                <p>※所要時間はおおむね1時間です。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="course-notice" v-if="shopId==3">
+                    <div class="notice-title">【重要なお知らせ】<br>10月11日以降のご予約は新店舗です</div>
+                    <div class="notice-text">
+                        鎌倉彫金工房 横浜元町は、2025年10月11日より下記住所へ移転いたします。<br>
+                        10月11日以降のご予約は、新店舗でのご案内となりますので、お間違いのないようご注意ください。<br>
+                        <br>
+                        神奈川県横浜市中区元町4丁目163-3 2F<br>
+                        ※階段利用のみ（エレベーターなし）<br>
+                        （元町・中華街駅より徒歩5分）<br>
+                        <a href="https://maps.app.goo.gl/pnegQWE3xzEBzeAK6" target="_blank">Google map</a>
+                    </div>
+                </div>
+                -->
+            </div>
+
+            <div class="calendar-select">
+                <div class="inner">
+                    <div class="label"><span class="tag required">必須</span>日時</div>
+                    <div :class="{'input': true, 'text': true, 'error': errors.reserve_datetime}">
+                        <input v-model="reserveDateTimeDisplay" @click="openCalendar" type="text" name="reserve_datetime_display" readonly="readonly" placeholder="予約日時を選択してください。" />
+                        <div v-if="errors.reserve_datetime" class="error-message">日時を選択してください</div>
+                    </div>
+<div v-if="shopId == 2" class="osaka-campaign-notice" id="campaign-date-notice">
+  <div class="campaign-notice-title">【大阪中崎町限定】1,518本突破キャンペーン</div>
+  <div>キャンペーン対象の期間とコースを必ずご確認ください。</div>
+  <div class="campaign-notice-period">対象期間：2027年1月5日（火）〜2月28日（日）</div>
+  <div>ご予約日ではなく、ご制作いただく日が対象です。</div>
+  <div class="campaign-notice-courses">
+    <div>結婚指輪・婚約指輪・アニバーサリー：10％OFF</div>
+    <div>結婚指輪・婚約指輪コース（3本制作）：15％OFF</div>
+  </div>
+  <div>※指輪の本体代のみ。</div>
+  <div>対象期間・コース以外は適用されません。</div>
+</div>
+                    <!-- 価格改定のお知らせ（一時非表示）
+                    <div class="price-revision-notice">
+                        <div>【重要なお知らせ】</div>
+                        <div>2026/5/1より価格改定を行います。5月以降にご予約予定の方は必ず以下の記事をご確認ください。</div>
+                        <div><a href="https://kamakura-chokin.com/88598" target="_blank">【大切なお知らせ】2026年5月より指輪制作の価格体系を改定いたします</a></div>
+                    </div>
+                    -->
+                                    </div>
+                <div v-show="showCalendar">
+                    <p class="local-calendar-note">デザイン確認用：空席情報は取得していません。</p><div id="calendar" class="calendar"></div>
+                    <div class="inner">
+                        <div class="cancel-wait">
+                            <div class="cancel-description">
+                                <div>指定した期間中の予約にキャンセルが発生した場合、</div>
+                                <div>LINEまたはメールにてお知らせします。</div>
+                            </div>
+                            <div @click="openReminderModal" class="btn-wait">キャンセル通知を受け取る</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 指輪について -->
+        <section v-if="showRingSection" class="section section03">
+            <div class="section-label"><div class="inner">指輪について</div></div>
+            <div class="inner">
+                <div v-if="!showRingInfo" @click="toggleRingInfo" href="#" class="btn-toggle">指輪の詳細要望を入力する（任意）</div>
+                <div v-if="showRingInfo" @click="toggleRingInfo" href="#" class="btn-toggle active">閉じる</div>
+                <div :class="{'toggle-item': true, 'active': showRingInfo}">
+                    <div class="desc">当日の変更も承ります。現在検討中のものを選択してください。</div>
+                    <div v-if="showCommonRing" class="reserves-ring common-select">
+                        <div class="item-wrapper">
+                            <div class="item-title">{{ computedRingName }}（1本目）</div>
+                            <div class="items man">
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>素材</div>
+                                    <select name="material_man" class="" v-model="materialMan">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in computedSelectMaterialItems(0)"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>デザイン</div>
+                                    <select name="design_man" class="" v-model="designMan">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in selectDesignItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>幅</div>
+                                    <select name="width_man" class="" v-model="widthMan">
+                                        <option value="">選択してください</option>
+                                        <template v-for="item in computedSelectWidthItems" :key="item">
+                                            <option
+                                                :value="item.id"
+                                                :disabled="[6, 7, 8].includes(this.materialMan) === true && item.id != 4"
+                                            >
+                                                {{ item.name }}
+                                            </option>
+                                        </template>
+                                    </select>
+                                    <!-- 結婚指輪1本目幅の制作費脚注（一時非表示）
+                                    <div v-if="widthMan == 9" class="width-description">約3.0mm幅は制作費が22,000円となります</div>
+                                    <div v-if="widthMan == 10" class="width-description">約4.0mm幅は制作費が33,000円となります</div>
+                                    -->
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>サイズ</div>
+                                    <select name="size_man" class="" v-model="sizeMan">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in selectSizeItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>オプション</div>
+                                    <select name="option_man" class="" v-model="optionMan">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in computedSelectOptionItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <div class="item-title">{{ computedRingName }}（2本目）</div>
+                            <div class="items woman">
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>素材</div>
+                                    <select name="material_woman" class="" v-model="materialWoman">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in computedSelectMaterialItems(0)"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>デザイン</div>
+                                    <select name="design_woman" class="" v-model="designWoman">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in selectDesignItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>幅</div>
+                                    <select name="width_woman" class="" v-model="widthWoman">
+                                        <option value="">選択してください</option>
+                                        <template v-for="item in computedSelectWidthItems" :key="item">
+                                            <option
+                                                :value="item.id"
+                                                :disabled="[6, 7, 8].includes(this.materialWoman) === true && item.id != 4"
+                                            >
+                                                {{ item.name }}
+                                            </option>
+                                        </template>
+                                    </select>
+                                    <!-- 結婚指輪2本目幅の制作費脚注（一時非表示）
+                                    <div v-if="widthWoman == 9" class="width-description">約3.0mm幅は制作費が22,000円となります</div>
+                                    <div v-if="widthWoman == 10" class="width-description">約4.0mm幅は制作費が33,000円となります</div>
+                                    -->
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>サイズ</div>
+                                    <select name="size_woman" class="" v-model="sizeWoman">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in selectSizeItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>オプション</div>
+                                    <select name="option_woman" class="" v-model="optionWoman">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in computedSelectOptionItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="showEngageRing" class="reserves-ring engage-select">
+                        <div class="item-wrapper">
+                            <div class="item-title">婚約指輪</div>
+                            <div class="items woman">
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>素材</div>
+                                    <select name="material_engage" class="" v-model="materialEngage">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in computedSelectMaterialItems(0)"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>デザイン</div>
+                                    <select name="design_engage" class="" v-model="designEngage">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in selectDesignItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>幅</div>
+                                    <select name="width_engage" class="" v-model="widthEngage">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in computedSelectWidthItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                    <!-- 婚約指輪幅の制作費脚注（一時非表示）
+                                    <div v-if="widthEngage == 9" class="width-description">約3.0mm幅は制作費が22,000円となります</div>
+                                    <div v-if="widthEngage == 10" class="width-description">約4.0mm幅は制作費が33,000円となります</div>
+                                    -->
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>サイズ</div>
+                                    <select name="size_engage" class="" v-model="sizeEngage">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in selectSizeItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>オプション</div>
+                                    <select name="option_engage" class="" v-model="optionEngage">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in selectOptionItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="showPremiumRing" class="reserves-ring premium-select">
+                        <div class="item-wrapper">
+                            <div class="item-title">material_p_man</div>
+                            <div class="items man">
+                                <div class="item">
+                                    <select name="material_p_man" class="form-control" id="material-p-man"><option value="">素材を選択</option><option value="1">サンプルを見てから決めたい</option><option value="2">K10YG(イエローゴールド)</option><option value="3">K10PG(ピンクゴールド)</option><option value="4">K10WG(ホワイトゴールド)</option></select>                                </div>
+                                <div class="item">
+                                    <select name="design_p_man" class="form-control" id="design-p-man"><option value="">デザインを選択</option><option value="1">サンプルを見てから決めたい</option><option value="2">甲丸</option><option value="3">つちめ</option><option value="4">平打</option></select>                                </div>
+                                <div class="item">
+                                    <select name="size_p_man" class="form-control" id="size-p-man"><option value="">号数を選択</option><option value="0">当日測りたい</option><option value="1">1号</option><option value="2">2号</option><option value="3">3号</option><option value="4">4号</option><option value="5">5号</option><option value="6">6号</option><option value="7">7号</option><option value="8">8号</option><option value="9">9号</option><option value="10">10号</option><option value="11">11号</option><option value="12">12号</option><option value="13">13号</option><option value="14">14号</option><option value="15">15号</option><option value="16">16号</option><option value="17">17号</option><option value="18">18号</option><option value="19">19号</option><option value="20">20号</option><option value="21">21号</option><option value="22">22号</option><option value="23">23号</option><option value="24">24号</option><option value="25">25号</option><option value="26">26号</option><option value="27">27号</option><option value="28">28号以上</option></select>                                </div>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <div class="item-title">material_p_woman</div>
+                            <div class="items woman">
+                                <div class="item">
+                                    <select name="material_p_woman" class="form-control" id="material-p-woman"><option value="">素材を選択</option><option value="1">サンプルを見てから決めたい</option><option value="2">K10YG(イエローゴールド)</option><option value="3">K10PG(ピンクゴールド)</option><option value="4">K10WG(ホワイトゴールド)</option></select>                                </div>
+                                <div class="item">
+                                    <select name="design_p_woman" class="form-control" id="design-p-woman"><option value="">デザインを選択</option><option value="1">サンプルを見てから決めたい</option><option value="2">甲丸</option><option value="3">つちめ</option><option value="4">平打</option></select>                                </div>
+                                <div class="item">
+                                    <select name="size_p_woman" class="form-control" id="size-p-woman"><option value="">号数を選択</option><option value="0">当日測りたい</option><option value="1">1号</option><option value="2">2号</option><option value="3">3号</option><option value="4">4号</option><option value="5">5号</option><option value="6">6号</option><option value="7">7号</option><option value="8">8号</option><option value="9">9号</option><option value="10">10号</option><option value="11">11号</option><option value="12">12号</option><option value="13">13号</option><option value="14">14号</option><option value="15">15号</option><option value="16">16号</option><option value="17">17号</option><option value="18">18号</option><option value="19">19号</option><option value="20">20号</option><option value="21">21号</option><option value="22">22号</option><option value="23">23号</option><option value="24">24号</option><option value="25">25号</option><option value="26">26号</option><option value="27">27号</option><option value="28">28号以上</option></select>                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="showSilverRing" class="reserves-ring silver-select">
+                        <div class="item-wrapper">
+                            <div class="item-title">design_silver_man</div>
+                            <div class="items man">
+                                <div class="item">
+                                    <select name="design_silver_man" class="form-control" id="design-silver-man"><option value="">デザインを選択</option><option value="1">サンプルを見てから決めたい</option><option value="2">甲丸</option><option value="3">つちめ</option><option value="4">平打</option></select>                                </div>
+                                <div class="item">
+                                    <select name="width_silver_man" class="form-control" id="width-silver-man"><option value="">幅を選択</option><option value="1">サンプルを見てから決めたい</option><option value="2">約2.5mm</option><option value="3">約2.0mm</option><option value="4">約1.5mm</option><option value="5">約2.5mm（シルバー素材のみ）</option><option value="6">約3.0mm（シルバー素材のみ）</option><option value="7">約4.0mm（シルバー素材のみ）</option><option value="8">約5.0mm（シルバー素材のみ）</option><option value="9">約3.0mm</option><option value="10">約4.0mm</option></select>                                </div>
+                                <div class="item">
+                                    <select name="size_silver_man" class="form-control" id="size-silver-man"><option value="">号数を選択</option><option value="0">当日測りたい</option><option value="1">1号</option><option value="2">2号</option><option value="3">3号</option><option value="4">4号</option><option value="5">5号</option><option value="6">6号</option><option value="7">7号</option><option value="8">8号</option><option value="9">9号</option><option value="10">10号</option><option value="11">11号</option><option value="12">12号</option><option value="13">13号</option><option value="14">14号</option><option value="15">15号</option><option value="16">16号</option><option value="17">17号</option><option value="18">18号</option><option value="19">19号</option><option value="20">20号</option><option value="21">21号</option><option value="22">22号</option><option value="23">23号</option><option value="24">24号</option><option value="25">25号</option><option value="26">26号</option><option value="27">27号</option><option value="28">28号以上</option></select>                                </div>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <div class="item-title">design_silver_woman</div>
+                            <div class="items woman">
+                                <div class="item">
+                                    <select name="design_silver_woman" class="form-control" id="design-silver-woman"><option value="">デザインを選択</option><option value="1">サンプルを見てから決めたい</option><option value="2">甲丸</option><option value="3">つちめ</option><option value="4">平打</option></select>                                </div>
+                                <div class="item">
+                                    <select name="width_silver_woman" class="form-control" id="width-silver-woman"><option value="">幅を選択</option><option value="1">サンプルを見てから決めたい</option><option value="2">約2.5mm</option><option value="3">約2.0mm</option><option value="4">約1.5mm</option><option value="5">約2.5mm（シルバー素材のみ）</option><option value="6">約3.0mm（シルバー素材のみ）</option><option value="7">約4.0mm（シルバー素材のみ）</option><option value="8">約5.0mm（シルバー素材のみ）</option><option value="9">約3.0mm</option><option value="10">約4.0mm</option></select>                                </div>
+                                <div class="item">
+                                    <select name="size_silver_woman" class="form-control" id="size-silver-woman"><option value="">号数を選択</option><option value="0">当日測りたい</option><option value="1">1号</option><option value="2">2号</option><option value="3">3号</option><option value="4">4号</option><option value="5">5号</option><option value="6">6号</option><option value="7">7号</option><option value="8">8号</option><option value="9">9号</option><option value="10">10号</option><option value="11">11号</option><option value="12">12号</option><option value="13">13号</option><option value="14">14号</option><option value="15">15号</option><option value="16">16号</option><option value="17">17号</option><option value="18">18号</option><option value="19">19号</option><option value="20">20号</option><option value="21">21号</option><option value="22">22号</option><option value="23">23号</option><option value="24">24号</option><option value="25">25号</option><option value="26">26号</option><option value="27">27号</option><option value="28">28号以上</option></select>                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="showBabyRing" class="reserves-ring baby-select">
+                        <div class="label"><span class="tag optional">任意</span>ベビーリングも制作いただけます</div>
+                        <div class="txt">お子さまの誕生記念や1歳のお誕生日に贈る指輪を手作りすることもできます（リング内側の直径は1cm程です）。</div>
+                        <div class="radio-wrapper">
+                            <div
+                                :class="{'is-baby': true, 'active': isBaby == 0}"
+                                @click="changeIsBaby(0)"
+                            >制作を希望しない
+                            </div>
+                            <div
+                                :class="{'is-baby': true, 'active': isBaby == 1}"
+                                @click="changeIsBaby(1)"
+                            >制作を希望する
+                            </div>
+                        </div>
+                        <div v-show="isBaby==1" class="desc">当日の変更も承ります。現在検討中のものを選択してください。</div>
+                        <div v-show="isBaby==1" class="">
+                            <div class="items baby">
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>素材</div>
+                                    <select name="material_baby" class="" v-model="materialBaby">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in computedSelectMaterialItems(1)"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>デザイン</div>
+                                    <select name="design_baby" class="" v-model="designBaby">
+                                        <option value="">選択してください</option>
+                                        <option
+                                            v-for="item in selectDesignItems"
+                                            :value="item.id"
+                                            :key="item.id"
+                                        >
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>幅</div>
+                                    <select name="width_baby" class="" v-model="widthBaby">
+                                        <option value="">選択してください</option>
+                                        <template v-for="item in computedSelectWidthItems" :key="item">
+                                            <option
+                                                :value="item.id"
+                                                :disabled="[6, 7, 8].includes(this.materialBaby) === true && item.id != 4"
+                                            >
+                                                {{ item.name }}
+                                            </option>
+                                        </template>
+                                    </select>
+                                    <!-- ベビーリング幅の制作費脚注（一時非表示）
+                                    <div v-if="widthBaby == 9" class="width-description">約3.0mm幅は制作費が22,000円となります</div>
+                                    <div v-if="widthBaby == 10" class="width-description">約4.0mm幅は制作費が33,000円となります</div>
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- お客さま情報 -->
+        <section class="section section04">
+            <div class="section-label"><div class="inner">お客さま情報</div></div>
+            <div class="inner">
+                <div class="reserves-personal">
+                    <div>
+                        <div class="item">
+                            <div class="label"><span class="tag required">必須</span>お名前</div>
+                            <div :class="{'input': true, 'text': true, 'error': errors.name}">
+                                <input v-model="name" type="text" name="name" class="" placeholder="鎌倉彫子" maxlength="24" />
+                                <div v-if="errors.name" class="error-message">名前を入力してください</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label"><span class="tag required">必須</span>ふりがな</div>
+                            <div :class="{'input': true, 'text': true, 'error': errors.name_kana}">
+                                <input v-model="nameKana" type="text" name="name_kana" class="" placeholder="かまくらちょうこ" maxlength="24" />
+                                <div v-if="errors.name_kana" class="error-message">ふりがなを入力してください</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label"><span class="tag required">必須</span>電話番号</div>
+                            <div :class="{'input': true, 'tel': true, 'error': errors.tel}">
+                                <input v-model="tel" type="tel" name="tel" placeholder="09012341234（ハイフンなし）" maxlength="11"/>
+                                <div v-if="errors.tel" class="error-message">電話番号を入力してください</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label"><span class="tag required">必須</span>メールアドレス</div>
+                            <div :class="{'input': true, 'email': true, 'error': errors.email}">
+                                <input v-model="email" type="email" name="email" placeholder="タイプミスにご注意ください" maxlength="64"/>
+                                <div v-if="errors.email" class="error-message">{{ errors.email_text }}</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label"><span class="tag required">必須</span>{{ computedLabelText }}</div>
+                            <div :class="{'input': true, 'select': true, 'error': errors.person}">
+                                <select name="person" class="" v-model="person">
+                                    <option value="">選択してください</option>
+                                    <option
+                                        v-for="item in selectPersonItems"
+                                        :value="item.id"
+                                        :key="item.id"
+                                    >
+                                        {{ item.name }}
+                                    </option>
+                                </select>
+                                <div v-if="errors.person" class="error-message">人数を選択してください</div>
+                            </div>
+                        </div>
+                        <div v-show="person==3" class="item">
+                            <div class="label"><span class="tag required">必須</span>人数を入力ください</div>
+                            <div :class="{'input': true, 'text': true, 'error': errors.person_note}">
+                                <input v-model="personNote" type="text" name="person_note" class="" maxlength="100000" placeholder="4"/>
+                                <div v-if="errors.person_note" class="error-message">人数を入力してください</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label"><span class="tag optional">任意</span>お付き添いの人数</div>
+                            <div class="txt">{{ computedCompanionText }}</div>
+                            <select name="companion" class="" v-model="companion">
+                                <option value="">選択してください</option>
+                                <option value="1">1名（2名以上は下記コメントフォームよりご相談ください）</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div v-if="!showCompanionInfo" @click="toggleCompanionInfo" href="#" class="btn-toggle">お連れさまの連絡先を入力（任意）</div>
+                    <div v-if="showCompanionInfo" @click="toggleCompanionInfo" href="#" class="btn-toggle active">閉じる</div>
+                    <div :class="{'toggle-item': true, 'active': showCompanionInfo}">
+                        <div class="item-wrapper">
+                            <div class="item-title">お連れさま（1人目）</div>
+                            <div class="items">
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>お名前</div>
+                                    <input v-model="companion1Name" type="text" name="companion1_name" class="" placeholder="鎌倉彫子" maxlength="24"/>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>ふりがな</div>
+                                    <input v-model="companion1NameKana" type="text" name="companion1_name_kana" class="" placeholder="かまくらちょうこ" maxlength="24"/>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>電話番号</div>
+                                    <input v-model="companion1Tel" type="text" name="companion1_tel" class="" placeholder="09012341234（ハイフンなし）" maxlength="11"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <div class="item-title">お連れさま（2人目）</div>
+                            <div class="items">
+                            <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>お名前</div>
+                                    <input v-model="companion2Name" type="text" name="companion2_name" class="" placeholder="鎌倉彫子" maxlength="24"/>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>ふりがな</div>
+                                    <input v-model="companion2NameKana" type="text" name="companion2_name_kana" class="" placeholder="かまくらちょうこ" maxlength="24"/>
+                                </div>
+                                <div class="item">
+                                    <div class="label"><span class="tag optional">任意</span>電話番号</div>
+                                    <input v-model="companion2Tel" type="text" name="companion2_tel" class="" placeholder="09012341234（ハイフンなし）" maxlength="11"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item">
+                            <div class="label"><span class="tag required">必須</span>以前予約したことがあるコースはありますか？</div>
+                            <div class="txt">複数ある方は直近のひとつをお選びください。</div>
+                            <div :class="{'input': true, 'select': true, 'error': errors.reserved_course_id}">
+                                <select name="reserved_course_id" class="" v-model="reservedCourseId">
+                                    <option value="">選択してください</option>
+                                    <option
+                                        v-for="item in selectReservedCourseItems"
+                                        :value="item.id"
+                                        :key="item.id"
+                                    >
+                                        {{ item.name }}
+                                    </option>
+                                </select>
+                                <div v-if="errors.reserved_course_id" class="error-message">コースを選択してください</div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="label"><span class="tag optional">任意</span>車いす、ベビーカーでのご来店</div>
+                            <div class="radio-wrapper">
+                                <div
+                                    :class="{'is-wheelchair': true, 'active': isWheelchair == 1}"
+                                    @click="changeIsWheelchair(1)"
+                                >はい
+                                </div>
+                                <div
+                                    :class="{'is-wheelchair': true, 'active': isWheelchair == 0}"
+                                    @click="changeIsWheelchair(0)"
+                                >いいえ
+                                </div>
+                            </div>
+                            <div v-if="shopId==3 && isWheelchair == 1" class="message-notice">
+                                <!--
+                                <div class="notice-title">10月11日以降のご予約のお客様へ</div>
+                                -->
+                                <div class="notice-text">
+                                    当工房は2階にございますが、<br>
+                                    あいにくエレベーターのご用意がございません。<br>
+                                    <br>
+                                    ご来店に際し、階段での移動にご不安がある場合は、ご遠慮なくスタッフにお声がけください。<br>
+                                    状況に合わせて、お手伝いやご案内をさせていただきます。<br>
+                                    <br>
+                                    また、1階に店舗がある本店（鎌倉）もございますので、車いすやベビーカーでのご来店でご心配な方は、ご都合に合わせてそちらのご利用もご検討ください。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label"><span class="tag optional">任意</span>その他のご要望を入力ください</div>
+                            <div class="txt">未就学児をお連れの場合はその旨もお知らせください。</div>
+                            <textarea v-model="note" name="note" class="" placeholder="ご自由にどうぞ" rows="5" maxlength="100000"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 確認事項 -->
+        <section class="section section05">
+            <div class="section-label"><div class="inner">鎌倉彫金工房からお客さまへの確認事項</div></div>
+            <div class="inner">
+                <div class="reserve-notice">
+                    <div class="item">● 携帯電話のアドレスを入力されている場合は「info@kamakura-chokin.com」からのメールが届くよう設定の変更をお願いします。設定の変更方法は、<a href="https://kamakura-chokin.com/qa/%E7%A2%BA%E8%AA%8D%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%8C%E5%B1%8A%E3%81%8D%E3%81%BE%E3%81%9B%E3%82%93" target="_blank">よくある質問（確認メールが届きません）</a>をご参照ください。</div>
+                    <div class="item">● ご予約のキャンセルはご予約日の1週間前までにHPまたはお電話でお手続きをお願いいたします。連絡なくキャンセルされた場合は、キャンセル料が発生する可能性がございます。予めご了承ください。</div>
+                    <div class="item">● 予約時間に遅れてしまう場合は事前にお電話にてご連絡ください。ご到着のお時間、予約状況によっては予約日を変更いただく場合がございます。</div>
+                    <div class="item">● プラチナ・18金ゴールド（イエロー/ピンク/ホワイト）の4.0mm幅以上は特注品となります。材料在庫の都合上、4週間前までの事前お打ち合わせをお願いしております。</div>
+                    <div class="item">● 23号以上のサイズは、金属の使用量が多くなるため、素材にかかわらず追加料金を頂戴しております。23～29号は固定価格に＋10％、30号以上は、金属の使用量に加え制作工程も通常とは異なるため、固定価格に＋20％を頂戴しております。</div>
+                    <div class="item">● 30号以上をご希望のお客様は、材料の準備や制作工程の確認が必要となりますので、必ずご予約前に工房へ<a href="https://kamakura-chokin.com/form_list/" target="_blank" rel="noopener">お問い合わせ</a>ください。<br>
+                        ※サイズやデザインの特性上、真円での仕上がりや正確なサイズ計測が難しい場合がございます。<br>
+                        ※30号以上のリングには刻印をお入れできません。</div>
+                    <div class="item">● お支払いは当日現金またはクレジットカード払い（VISA、MasterCard、JCB、AMEX、DinersClub等）、電子マネー、QRコード決済にてお願いいたします。</div>
+                    <div class="item">● ご予約完了後、確認メールが入力されたメールアドレス宛に自動送信されます。24時間経ってもメールが届かない場合は、通常の処理ができていない可能性があります。お手数ですが、お電話にてご連絡くださいますようお願いいたします。</div>
+                    <div class="item">● 指輪のお受け取り、アフターケアのご来店は、<a href="https://kamakura-chokin.com/pickup-aftercare/" target="_blank">こちら</a>から事前にご予約いただきますとスムーズにご案内が可能です。</div>
+                    <div class="item">● <a href="https://kamakura-chokin.com/pp/" target="_blank">当サイトの個人情報の保護方針</a>を必ずお読みください。</div>
+                </div>
+                <div aria-disabled="true" class="btn-submit local-submit-disabled"><div>個人情報の保護方針に同意して</div><div>確認画面へ（送信不可）</div></div>
+            </div>
+        </section>
+    </form></div>
+
+<script>
+    const previewOptions = {
+        components: { Datepicker: VueDatePicker },
+        computed: {
+            computedSelectMaterialItems() {
+                // K10素材が選択された場合は幅は約1.5mmに固定する
+                return (isBaby) => {
+                    if ([6, 7, 8].includes(this.materialMan) === true) {
+                        this.widthMan = 4;
+                    }
+                    if ([6, 7, 8].includes(this.materialWoman) === true) {
+                        this.widthWoman = 4;
+                    }
+                    if ([6, 7, 8].includes(this.materialBaby) === true) {
+                        this.widthBaby = 4;
+                    }
+                    if (isBaby === 1) {
+                        return this.selectMaterialItems.filter(function (item) {
+                            return [1, 2, 3, 4, 5, 6, 7, 8, 9].includes(item.id);
+                        })
+                    }
+                    if (this.courseId == 10) {
+                        return this.selectMaterialItems.filter(function (item) {
+                            return [1, 6, 7, 8, 9].includes(item.id);
+                        })
+                    } else {
+                        return this.selectMaterialItems.filter(function (item) {
+                            return [1, 2, 3, 4, 5].includes(item.id);
+                        })
+                    }
+                }
+            },
+            computedSelectWidthItems() {
+                if (this.courseId == 10) {
+                    return this.selectWidthItems.filter(function (item) {
+                        return [1, 4, 5, 6, 7, 8].includes(item.id);
+                    })
+                } else {
+                    return [1, 9, 2, 3, 4].map((id) =>
+                        this.selectWidthItems.find((item) => item.id === id)
+                    );
+                }
+            },
+            computedSelectOptionItems() {
+                return this.selectOptionItems.filter(function (item) {
+                    return [1, 3, 4, 6, 7, 8, 9].includes(item.id);
+                })
+            },
+            computedRingName() {
+                if (this.courseId == 10) {
+                    return '指輪';
+                } else {
+                    return '結婚指輪';
+                }
+            },
+            computedLabelText() {
+                if (this.courseId == 7) {
+                    return 'ご見学される方の人数';
+                } else {
+                    return '制作（購入）される方の人数';
+                }
+            },
+            computedCompanionText() {
+                if (this.courseId == 7) {
+                    return 'お子さまやカメラマンなど、来店するが見学されない方がいらっしゃる場合は人数を選択してください。';
+                } else {
+                    return 'お子さまやカメラマンなど、来店するが制作（購入）されない方がいらっしゃる場合は人数を選択してください。';
+                }
+            },
+            showCourseSection() {
+                if (this.shopId == '') {
+                    return false;
+                }
+                return true;
+            },
+            showCourseDescription() {
+                if (this.shopId == '') {
+                    return false;
+                }
+                if (this.courseId == '') {
+                    return false;
+                }
+                return true;
+            },
+            showRingSection() {
+                if (this.shopId == '') {
+                    return false;
+                }
+                if (this.courseId == '') {
+                    return false;
+                }
+                if (this.courseId == 7 || this.courseId == 8) {
+                    return false;
+                }
+                return true;
+            },
+            showCommonRing() {
+                if (this.courseId == 1 || this.courseId == 3 || this.courseId == 9 || this.courseId == 10) {
+                    return true;
+                }
+                return false;
+            },
+            showEngageRing() {
+                if (this.courseId == 2 || this.courseId == 3) {
+                    return true;
+                }
+                return false;
+            },
+            showPremiumRing() {
+                if (this.courseId == 4) {
+                    return true;
+                }
+                return false;
+            },
+            showSilverRing() {
+                if (this.courseId == 5) {
+                    return true;
+                }
+                return false;
+            },
+            showBabyRing() {
+                if (this.courseId == 1 || this.courseId == 2 || this.courseId == 3) {
+                    return true;
+                }
+                return false;
+            },
+            cancelAllowedDates() {
+                let allowedDates = [];
+                for (let i = 0; i <= 90; i ++) {
+                    let date = new Date();
+                    date.setDate(date.getDate() + i);
+                    allowedDates.push(date.toISOString().substr(0, 10));
+                }
+                return allowedDates;
+            },
+        },
+        data() {
+            return {
+                // constとデータを合わせる
+                selectCourseItems: [
+                    {id: 3, name: '手作り結婚指輪・婚約指輪コース（3本制作）'},
+                    {id: 1, name: '手作り結婚指輪コース'},
+                    {id: 2, name: '手作り婚約指輪コース'},
+                    {id: 8, name: 'ダイヤモンドプロポーズコース'},
+                    {id: 9, name: '手作りアニバーサリーコース'},
+                    {id: 10, name: '手作りペアリングコース'},
+                    {id: 7, name: '結婚指輪・婚約指輪 ご見学＆デザイン相談'},
+                ],
+                selectMaterialItems: [
+                    {id: 1, name: 'サンプルを見てから決めたい'},
+                    {id: 2, name: 'Pt900(プラチナ)'},
+                    {id: 3, name: 'K18YG(イエローゴールド)'},
+                    {id: 4, name: 'K18PG(ピンクゴールド)'},
+                    {id: 5, name: 'K18WG(ホワイトゴールド)'},
+                    {id: 6, name: 'K10YG(イエローゴールド)'},
+                    {id: 7, name: 'K10PG(ピンクゴールド)'},
+                    {id: 8, name: 'K10WG(ホワイトゴールド)'},
+                    {id: 9, name: 'SV950(シルバー)'},
+                ],
+                selectDesignItems: [
+                    {id: 1, name: 'サンプルを見てから決めたい'},
+                    {id: 2, name: '甲丸'},
+                    {id: 3, name: 'つちめ'},
+                    {id: 4, name: '平打'},
+                ],
+                selectWidthItems: [
+                    {id: 1, name: 'サンプルを見てから決めたい'},
+                    {id: 2, name: '約2.5mm'},
+                    {id: 3, name: '約2.0mm'},
+                    {id: 4, name: '約1.5mm'},
+                    {id: 5, name: '約2.5mm（シルバー素材のみ）'},
+                    {id: 6, name: '約3.0mm（シルバー素材のみ）'},
+                    {id: 7, name: '約4.0mm（シルバー素材のみ）'},
+                    {id: 8, name: '約5.0mm（シルバー素材のみ）'},
+                    {id: 9, name: '約3.0mm'},
+                ],
+                selectSizeItems: [
+                    {id: 0, name: '当日測りたい'},
+                    {id: 1, name: '1号'},
+                    {id: 2, name: '2号'},
+                    {id: 3, name: '3号'},
+                    {id: 4, name: '4号'},
+                    {id: 5, name: '5号'},
+                    {id: 6, name: '6号'},
+                    {id: 7, name: '7号'},
+                    {id: 8, name: '8号'},
+                    {id: 9, name: '9号'},
+                    {id: 10, name: '10号'},
+                    {id: 11, name: '11号'},
+                    {id: 12, name: '12号'},
+                    {id: 13, name: '13号'},
+                    {id: 14, name: '14号'},
+                    {id: 15, name: '15号'},
+                    {id: 16, name: '16号'},
+                    {id: 17, name: '17号'},
+                    {id: 18, name: '18号'},
+                    {id: 19, name: '19号'},
+                    {id: 20, name: '20号'},
+                    {id: 21, name: '21号'},
+                    {id: 22, name: '22号'},
+                    {id: 23, name: '23号'},
+                    {id: 24, name: '24号'},
+                    {id: 25, name: '25号'},
+                    {id: 26, name: '26号'},
+                    {id: 27, name: '27号'},
+                    {id: 28, name: '28号以上'},
+                ],
+                selectOptionItems: [
+                    {id: 1, name: 'サンプルを見てから決めたい'},
+                    {id: 2, name: '絞り'},
+                    {id: 3, name: 'ミルグレイン'},
+                    {id: 4, name: 'ウェーブ'},
+                    {id: 5, name: 'ウェーブ絞り'},
+                    {id: 6, name: 'クロス'},
+                    {id: 7, name: '甲丸つちめ'},
+                    {id: 8, name: 'ライン'},
+                    {id: 9, name: 'その他'},
+                ],
+                selectPersonItems: [
+                    {id: 1, name: '1名'},
+                    {id: 2, name: '2名'},
+                    {id: 3, name: '3名以上（空席状況によりお席をご用意できない場合がございます）'},
+                ],
+                selectReservedCourseItems: [
+                    {id: 1, name: '今回が初めて'},
+                    {id: 2, name: '結婚・婚約指輪手作りコース（３本制作）'},
+                    {id: 3, name: '結婚指輪手作りコース'},
+                    {id: 4, name: '婚約指輪手作りコース'},
+                    {id: 5, name: 'ダイヤモンドプロポーズコース'},
+                    {id: 10, name: '手作りペアリングコース'},
+                    {id: 6, name: 'プレミアムリング（10金）コース'},
+                    {id: 7, name: 'シルバーリング手作りコース'},
+                    {id: 8, name: 'シルバーチャーム手作りコース'},
+                    {id: 9, name: '結婚指輪・婚約指輪 ご見学＆デザイン相談'},
+                ],
+
+                // inputデータ
+                shopId: '',
+                courseId: '',
+                reserveDateTime: '',
+                reserveDateTimeDisplay: '',
+
+                materialMan: '',
+                designMan: '',
+                widthMan: '',
+                sizeMan: '',
+                optionMan: '',
+
+                materialWoman: '',
+                designWoman: '',
+                widthWoman: '',
+                sizeWoman: '',
+                optionWoman: '',
+
+                materialEngage: '',
+                designEngage: '',
+                widthEngage: '',
+                sizeEngage: '',
+                optionEngage: '',
+
+                isBaby: '0',
+                materialBaby: '',
+                designBaby: '',
+                widthBaby: '',
+
+                name: '',
+                nameKana: '',
+                tel: '',
+                email: '',
+                person: '',
+                personNote: '',
+                companion: '',
+
+                companion1Name: '',
+                companion1NameKana: '',
+                companion1Tel: '',
+                companion2Name: '',
+                companion2NameKana: '',
+                companion2Tel: '',
+                reservedCourseId: '1',
+                isWheelchair: '0',
+                note: '',
+
+                cancelShopId: 1,
+                cancelCourseType: '',
+                cancelNameKana: '',
+                cancelPerson: '',
+                cancelStartDate: '',
+                cancelEndDate: '',
+                cancelEmail: '',
+                cancelDatePickerStartKey: 0,
+                cancelDatePickerEndKey: 0,
+
+                // サーバーからのレスポンス
+                responseCancelEmail: '',
+                responseCancelCourseName: '',
+                responseCancelTerm: '',
+
+                // validation error
+                errors: {},
+
+                // その他
+                showRingInfo: false,
+                showCalendar: false,
+                selectTimeItems: [],
+                calendar: '',
+                calendarOptions: {
+                    //plugins: [dayGridPlugin, interactionPlugin],
+                    initialView: 'dayGridMonth'
+                },
+                showTimeModal: false,
+                showReminderModal: false,
+                showReminderSuccess: false,
+                showCompanionInfo: false,
+            };
+        },
+        methods: {
+            // 店舗変更時
+            changeShop(shopId) {
+                this.shopId = shopId;
+                this.reserveDateTime = '';
+                this.reserveDateTimeDisplay = '';
+                this.closeCalendar();
+            },
+            changeCourse() {
+                this.reserveDateTime = '';
+                this.reserveDateTimeDisplay = '';
+                this.openCalendar();
+            },
+            changeIsBaby(isBaby) {
+                this.isBaby = isBaby;
+            },
+            changeIsBaby(isBaby) {
+                this.isBaby = isBaby;
+            },
+            changeIsWheelchair(isWheelchair) {
+                this.isWheelchair = isWheelchair;
+            },
+            changeCancelShop(shopId) {
+                this.cancelShopId = shopId;
+                this.cancelDatePickerStartKey ++;
+                this.cancelDatePickerEndKey ++;
+            },
+            changeCancelCourseType(courseType) {
+                this.cancelCourseType = courseType;
+            },
+            openCalendar() {
+                if (this.shopId == '' || this.courseId == '') {
+                    this.showCalendar = false;
+                    return;
+                }
+                this.showCalendar = true;
+                this.renderCalendar();
+            },
+            closeCalendar() {
+                this.showCalendar = false;
+            },
+            renderCalendar() {
+                var calendarEl = document.getElementById('calendar');
+                this.calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    locale: 'ja',
+                    buttonText: {
+                        today: '今日',
+                    },
+                    height: 'auto',
+                    firstDay: 1, // 月曜始まり
+                    // 日を表示させない
+                    dayCellContent: function(e) {
+                        e.dayNumberText = e.dayNumberText.replace('日', '');
+                    },
+                    // カレンダーが描画されるたびに呼ばれる
+                    events: (info, successCallback, failureCallback) => {
+                        axios
+                            .get('/reserves/ajax_calendar_json/' + this.courseId, {
+                                headers: {'X-Requested-With': 'XMLHttpRequest'},
+                                params: {
+                                    shop_id: this.shopId,
+                                    start: info.start.toISOString().substr(0, 10),
+                                    end: info.end.toISOString().substr(0, 10)
+                                }
+                            })
+                            .then(function(res) {
+                                successCallback(res.data);
+                            })
+                            .catch(function(err) {
+                                console.log('エラーが発生しました')
+                            })
+                    },
+                    eventContent: function(arg) {
+                        let event = arg.event;
+                        let customHtml = event.title
+                        return { html: customHtml }
+                    },
+                    eventClick: (eventClickInfo) => {
+                        var targetDate = eventClickInfo.event.start;
+                        this.clickCalendar(eventClickInfo, targetDate);
+                    },
+                    dateClick: (dateClickInfo) => {
+                        var targetDate = dateClickInfo.date
+                        this.clickCalendar(dateClickInfo, targetDate);
+                    }
+                });
+                this.calendar.render();
+            },
+            // カレンダークリック時の処理
+            clickCalendar(info, targetDate) {
+                targetDate = targetDate.toISOString().substr(0, 10);
+                var targetEvents = [];
+                var allEvents = this.calendar.getEvents();
+
+                for (var i = 0; i < allEvents.length; i ++) {
+                    if (allEvents[i].start.toISOString().substr(0, 10) == targetDate) {
+                        targetEvents.push(allEvents[i]);
+                    }
+                }
+
+                if (targetEvents.length == 0) {
+                    return;
+                }
+
+                this.selectTimeItems = [];
+                for (var i = 0; i < targetEvents.length; i ++) {
+                    var date = moment(targetEvents[i].start.toISOString());
+                    this.reserveDateTimeDisplay = date.format('YYYY年MM月DD日(ddd)');
+                    var regex = /<span.+? /i;
+                    var time = targetEvents[i].title.replace(regex, '');
+                    var active = false;
+                    if (targetEvents[i].title.match(/◯/)) {
+                        active = true;
+                    }
+                    var item = {
+                        value: date.format('YYYY年MM月DD日(ddd)') + ' ' + time,
+                        name: time,
+                        active: active,
+                    };
+
+                    this.selectTimeItems.push(item);
+                }
+
+                this.openTimeModal();
+            },
+            // 時間選択モーダル
+            openTimeModal() {
+                this.showTimeModal = true;
+            },
+            closeTimeModal() {
+                this.showTimeModal = false;
+            },
+            // 時間選択時の処理
+            selectTime(selectTime) {
+                this.reserveDateTimeDisplay = selectTime;
+
+                const regex = /(.+?)年(.+?)月(.+?)日.+?\s(.+?)/;
+                var reserveDateTime = selectTime.replace(regex, '$1-$2-$3 $4');
+                this.reserveDateTime = reserveDateTime;
+
+                document.getElementById('section02').scrollIntoView({
+                    behavior : 'smooth',
+                });
+
+                this.closeTimeModal();
+                this.closeCalendar();
+            },
+            // キャンセル待ちモーダル
+            openReminderModal() {
+                this.showReminderModal = true;
+            },
+            closeReminderModal() {
+                this.showReminderModal = false;
+            },
+            // 指輪について
+            toggleRingInfo() {
+                this.showRingInfo = !this.showRingInfo;
+            },
+            // お連れ様の情報
+            toggleCompanionInfo() {
+                this.showCompanionInfo = !this.showCompanionInfo;
+            },
+            validateForm() {
+                this.errors = {};
+
+                if (this.shopId === '') {
+                    this.errors.shop_id = true;
+                }
+                if (this.courseId === '') {
+                    this.errors.course_id = true;
+                }
+                if (this.reserveDateTime === '') {
+                    this.errors.reserve_datetime = true;
+                }
+                if (this.reserveDateTimeDisplay === '') {
+                    this.errors.reserve_datetime_display = true;
+                }
+                if (this.name === '') {
+                    this.errors.name = true;
+                }
+                if (this.nameKana === '') {
+                    this.errors.name_kana = true;
+                }
+                if (this.tel === '') {
+                    this.errors.tel = true;
+                }
+                if (this.email === '') {
+                    this.errors.email = true;
+                    this.errors.email_text = 'メールアドレスを入力してください';
+                }
+                if (this.email !== '') {
+                    // メールアドレスの形式チェック
+                    let regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                    if(!regex.test(this.email)) {
+                        this.errors.email = true;
+                        this.errors.email_text = 'メールアドレスの形式が正しくありません';
+                    }
+                }
+                if (this.person === '') {
+                    this.errors.person = true;
+                }
+                if (this.reservedCourseId === '') {
+                    this.errors.reserved_course_id = true;
+                }
+
+                for (var error in this.errors) {
+                    if (this.errors[error] === true) {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+                }
+
+                this.$refs.form1.submit();
+            },
+            cancelValidate() {
+                var isError = true;
+                if (this.cancelCourseType == '') {
+                    isError = false;
+                    this.errors.cancel_course_type = true;
+                } else {
+                    this.errors.cancel_course_type = false;
+                }
+                if (this.cancelNameKana == '') {
+                    isError = false;
+                    this.errors.cancel_name_kana = true;
+                } else {
+                    this.errors.cancel_name_kana = false;
+                }
+                if (this.cancelPerson == '') {
+                    isError = false;
+                    this.errors.cancel_person = true;
+                } else {
+                    this.errors.cancel_person = false;
+                }
+                if (this.cancelStartDate == '') {
+                    isError = false;
+                    this.errors.cancel_start_date = true;
+                } else {
+                    this.errors.cancel_start_date = false;
+                }
+                if (this.cancelEndDate == '') {
+                    isError = false;
+                    this.errors.cancel_end_date = true;
+                } else {
+                    this.errors.cancel_end_date = false;
+                }
+                return isError;
+            },
+            // キャンセル待ち送信
+            lineSubmit() {
+                let message = '対象コース\n';
+                if (this.cancelCourseType == '1') {
+                    message += '　・手作り結婚指輪コース\n　・手作り婚約指輪コース\n　・手作り結婚指輪・婚約指輪コース（3本制作）\n\n';
+                } else if (this.cancelCourseType == '2') {
+                    message += '　・手作りペアリングコース\n\n';
+                } else {
+                    return false;
+                }
+                message += 'おなまえ（ふりがな）\n';
+                message += '　' + this.cancelNameKana + '\n\n';
+                message += '制作される方の人数\n';
+                message += '　' + this.cancelPerson + '\n\n';
+                message += 'ご希望のキャンセル待ち期間\n';
+                message += '　' + this.cancelStartDate + '〜' + this.cancelEndDate + '\n\n';
+                let shopNames = {1: '本店', 2: '大阪中崎町', 3: '横浜元町', 4: '東京蔵前'};
+                message += '店舗\n';
+                message += '　' + shopNames[this.cancelShopId] + '\n\n';
+                message += 'このまま送信してください。';
+                message = encodeURIComponent(message);
+
+                let url = 'https://line.me/R/oaMessage/@763mgasc/?' + message;
+
+                let cancelValidate = this.cancelValidate();
+                if (cancelValidate == true) {
+                    window.open(url, '_blank');
+                } else {
+                    return false;
+                }
+            },
+            mailSubmit() {
+                if (this.cancelEmail == '') {
+                    this.errors.cancel_email = true;
+                    return false;
+                } else {
+                    this.errors.cancel_email = false;
+                }
+                let cancelValidate = this.cancelValidate();
+                if (cancelValidate == true) {
+                    axios
+                        .post(
+                            '/reserves/addWaitingList/?shop_id=' + this.cancelShopId,
+                            {
+                                course_type: this.cancelCourseType,
+                                cancel_name_kana: this.cancelNameKana,
+                                cancel_person: this.cancelPerson,
+                                start_date: this.cancelStartDate,
+                                end_date: this.cancelEndDate,
+                                cancel_email: this.cancelEmail,
+                            },
+                            {
+                                headers: {
+                                    'X-Requested-With': 'XMLHttpRequest',
+                                    'content-type': 'application/x-www-form-urlencoded',
+                                }
+                            },
+                        )
+                        .then((res) => {
+                            this.showReminderSuccess = true;
+                            this.responseCancelEmail = res.data.email;
+                            this.responseCancelCourseName = res.data.course_name;
+                            this.responseCancelTerm = res.data.cancel_term;
+                            // 計測タグ一時停止
+                            // dataLayer.push({
+                            //     event: 'analytics',
+                            //     eventCategory: 'cancel_notice_cat',
+                            //     eventAction: 'cancel_notice_action'
+                            // });
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                } else {
+                    return false;
+                }
+                return false;
+            },
+        },
+        mounted: function () {
+            // 曜日の日本語設定
+            moment.locale("ja", {
+                weekdays: ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"],
+                weekdaysShort: ["日", "月", "火", "水", "木", "金", "土"]
+            });
+        },
+    };
+    const originalData = previewOptions.data;
+    previewOptions.data = function () {
+        const state = originalData.call(this);
+        const selectedShop = new URLSearchParams(location.search).get('shop_id');
+        if (['1', '2', '3', '4'].includes(selectedShop)) state.shopId = selectedShop;
+        return state;
+    };
+    // この確認版ではネットワークを使わず、実際の空席を表示しない。
+    previewOptions.methods.renderCalendar = function () {
+        this.$nextTick(() => {
+            if (this.calendar && this.calendar.destroy) this.calendar.destroy();
+            this.calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
+                initialView: 'dayGridMonth', initialDate: '2027-01-01', locale: 'ja',
+                buttonText: {today: '今日'}, height: 'auto', firstDay: 1,
+                events: [], dayCellContent: e => e.dayNumberText.replace('日', '')
+            });
+            this.calendar.render();
+        });
+    };
+    previewOptions.methods.validateForm = function () { return false; };
+    previewOptions.methods.mailSubmit = function () { return false; };
+    previewOptions.methods.lineSubmit = function () { return false; };
+    previewOptions.methods.openReminderModal = function () { return false; };
+    const app = Vue.createApp(previewOptions);
+    app.mount('#app');
+
+</script>        </div>
+
+                            <footer class="footer footer-small">
+            <small class="footer__copyright">Copyright © 鎌倉彫金工房 All Rights Reserved.</small>
+</footer>            </div>
+<script>document.addEventListener("submit", function (event) { event.preventDefault(); }, true);</script></body>
+</html>
