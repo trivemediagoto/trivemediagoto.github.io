@@ -1,0 +1,73 @@
+/* リボン背景は元素材。ラベルの枠・影・重なりは予約フォームPSDから取得。 */
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign {
+    scroll-margin-top:80px;
+    margin-top:68px;
+    border:2px solid #758253;
+    flex-wrap:wrap;
+    /* PSD #9: distance 5, size 15, black 15%; 原寸750pxを50%表示 */
+    box-shadow:0 2.5px 7.5px rgba(0,0,0,.15);
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon {
+    position:absolute; top:-42px; left:-19px; right:-19px;
+    height:57px; display:flex; align-items:center;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-left,
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-right {
+    width:19px; height:57px; background:no-repeat center / contain; flex-shrink:0;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-left {background-image:url('/osaka-1518/reservation/img/reserves/campaign-ribbon-left.png');}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-right {background-image:url('/osaka-1518/reservation/img/reserves/campaign-ribbon-right.png');}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-center {
+    flex:1; min-width:0; height:57px;
+    background:url('/osaka-1518/reservation/img/reserves/campaign-ribbon-background.png') repeat-x center / auto 100%;
+    display:flex; align-items:center; justify-content:center;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-title {
+    display:flex; align-items:center; justify-content:center; gap:0;
+    padding-bottom:26px; color:#fff; white-space:nowrap;
+    font-family:"Noto Serif JP",serif; font-size:21px; font-weight:400; line-height:1.2;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-discount {
+    position:absolute; z-index:1; top:42px; left:50%; transform:translate(-50%,-50%);
+    display:flex; justify-content:center; align-items:baseline;
+    height:26.5px; padding:3px 14px 0; white-space:nowrap;
+    border:1px solid #758253; border-radius:30px; background:#fff; color:#758253;
+    font-family:"Noto Sans JP",sans-serif; font-weight:500; line-height:1;
+    /* PSD #74: 白いラベル #73 と同形を下5px、黒26/255、不透明度100%、ぼかしなし。 */
+    box-shadow:0 2.5px 0 rgba(0,0,0,.1019607843);
+}
+.campaign-discount .discount-max {font-size:13px; transform:translateY(-1px);}
+.campaign-discount .discount-number,.campaign-discount .discount-off {font-size:16px;}
+.campaign-discount .discount-percent {font-size:14px;}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-period {
+    flex:0 0 calc(100% + 15px); margin-left:-15px;
+    text-align:center; font-size:14px; color:#5b6a33; line-height:1;
+    padding:6px 0 12px; order:-1;
+}
+.campaign-period-note {margin-top:4px;}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign::before {top:65px; border-color:#758253;}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign::after {top:71px; background:#758253;}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign.active::before {border-color:#758253;}
+[v-cloak] {display:none;}
+.content .page-reserves .section02 .calendar-select .osaka-campaign-notice {
+    color:#d32f2f; font-size:1.2rem; font-weight:700; margin-top:15px; line-height:1.85;
+}
+.campaign-notice-title {margin-bottom:4px;}
+.campaign-notice-period,.campaign-notice-courses {margin-top:8px;}
+.local-preview-note {padding:10px 20px; background:#f4f2ec; color:#666; font:12px/1.8 sans-serif; text-align:center;}
+.local-calendar-note {max-width:576px; margin:18px auto 8px; color:#777; font-size:12px; text-align:center;}
+.local-submit-disabled {opacity:.55; cursor:not-allowed;}
+.calendar-select .cancel-wait {display:none;}
+@media(max-width:640px) {
+    .content .page-reserves .section01 .shops .shop.shop-osaka-campaign {margin-top:90px; scroll-margin-top:105px;}
+    .content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon {top:-64px; height:87px; left:-29px; right:-29px;}
+    .content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-left,
+    .content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-right,
+    .content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-center {height:87px;}
+    .content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-left,
+    .content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-right {width:29px;}
+    .content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-title {
+        flex-direction:column; gap:2px; padding-bottom:32px; font-size:18px; line-height:1.15;
+    }
+    .content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-discount {top:64px;}
+}
