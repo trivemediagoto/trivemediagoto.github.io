@@ -1,0 +1,2478 @@
+/*
+ * モーダル
+ */
+.modal {
+    display: block;
+}
+.modal .modal-body {
+    position: fixed;
+    z-index: 5;
+    width: 90%;
+    max-width: 750px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal .overlay {
+    z-index: 4;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:#fff;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    -moz-opacity:0.70;
+}
+
+
+/*
+ * 予約ページ
+ */
+.content .page-reserves select {
+    border: 1px solid #000;
+    width: 100%;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("/osaka-1518/img/reserves/icon-arrow-03.png") no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    padding: 8px;
+}
+.content .page-reserves input[type="text"],
+.content .page-reserves input[type="tel"],
+.content .page-reserves input[type="email"],
+.content .page-reserves input[type="date"]
+{
+    border: 1px solid #000;
+    width: 100%;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 8px;
+    font-size: 1.6rem;
+}
+.content .page-reserves textarea {
+    font-size: 1.6rem;
+    width: 100%;
+    border: solid 1px #000;
+    padding: 8px;
+}
+.content .page-reserves .input.select.error select {
+    border: 2px solid #b33636;
+}
+.content .page-reserves .input.text.error input {
+    border: 2px solid #b33636;
+}
+.content .page-reserves .input.tel.error input {
+    border: 2px solid #b33636;
+}
+.content .page-reserves .input.email.error input {
+    border: 2px solid #b33636;
+}
+.content .page-reserves .dp__main input {
+    border: 1px solid #000;
+    width: 100%;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 0 0 34px;
+    font-size: 1.6rem;
+    border-radius: unset;
+}
+.content .page-reserves .page-error {
+    color: #b33636;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.content .page-reserves .error-message {
+    color: #b33636;
+    font-size: 1.2rem;
+}
+.content .page-reserves .reserves-alert {
+    margin-bottom: 35px;
+}
+.content .page-reserves .reserves-alert .alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .page-reserves .reserves-alert img {
+    margin-right: 10px;
+    width: 24px;
+}
+.content .page-reserves .reserves-alert a {
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-decoration: underline;
+}
+.content .page-reserves .section {
+    padding: 0 0 35px 0;
+}
+.content .page-reserves .section .section-label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.6rem;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 35px;
+    background-image: url("/osaka-1518/img/reserves/bg-section-label.png");
+    background-size: cover;
+    color: #fff;
+}
+.content .page-reserves .section .label {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+.content .page-reserves .section .tag {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    padding: 0 4px 2px 4px;
+}
+.content .page-reserves .section .tag.required {
+    color: #fff;
+    background: #b33636;
+}
+.content .page-reserves .section .tag.optional {
+    color: #fff;
+    background: #9e9e9e;
+}
+.content .page-reserves .section01 {}
+.content .page-reserves .section01 .shops {}
+.content .page-reserves .section01 .shops .shop {
+    display: flex;
+    background: #f4f2ec;
+    padding: 15px 0 15px 15px;
+    margin-bottom: 25px;
+    position: relative;
+    box-shadow: 0px 4px 6px 0px #ddd;
+    border-radius: 6px;
+}
+.content .page-reserves .section01 .shops .shop::before,
+.content .page-reserves .section01 .shops .shop::after {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    transition: all .3s ease;
+    transition-property: transform, border-color;
+}
+.content .page-reserves .section01 .shops .shop::before {
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(0, 0, 0, 0.54);
+}
+.content .page-reserves .section01 .shops .shop::after {
+    top: 21px; /* 外丸の幅/2 - 内丸の幅/2px + 余白 */
+    right: 21px; /* 外丸の幅/2 - 内丸の幅/2px + 余白 */
+    width: 20px;
+    height: 20px;
+    transform: scale(0);
+    background: #a58f86;
+}
+.content .page-reserves .section01 .shops .shop.active::before {
+    border-color: #a58f86;
+    animation: ripple 0.2s linear forwards;
+}
+.content .page-reserves .section01 .shops .shop.active::after {
+    transform: scale(1);
+}
+.content .page-reserves .section01 .shops .shop:last-child {
+    margin-bottom: 0;
+}
+@keyframes ripple {
+    0% {
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.0);
+    }
+    50% { 
+        box-shadow: 0px 0px 0px 24px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        box-shadow: 0px 0px 0px 24px rgba(0, 0, 0, 0);
+    }
+}
+.content .page-reserves .section01 .shops .shop .shop-image {
+    width: 95px;
+    margin-right: 15px;
+}
+.content .page-reserves .section01 .shops .shop .shop-image img {
+    width: 100%;
+}
+.content .page-reserves .section01 .shops .shop .shop-info {}
+.content .page-reserves .section01 .shops .shop .shop-info .shop-note {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: #768253;
+    text-decoration: underline;
+}
+.content .page-reserves .section01 .shops .shop .shop-info .shop-title {
+    font-size: 2.1rem;
+}
+.content .page-reserves .section01 .shops .shop .shop-info .shop-desc {
+    font-size: 1.2rem;
+}
+.content .page-reserves .section01 .shops .shop .shop-notice {
+    width: 100%;
+    color: #b33636;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding-top: 10px;
+}
+
+/* 大阪中崎町を初期表示し、関東3店舗をアコーディオン内に表示 */
+.content .page-reserves .section01 .shops-osaka .shop {
+    margin-bottom: 0;
+}
+.content .page-reserves .section01 .shops .shop[role="radio"] {
+    cursor: pointer;
+}
+.content .page-reserves .section01 .shops .shop[role="radio"]:focus-visible {
+    outline: 3px solid #685851;
+    outline-offset: 3px;
+}
+.content .page-reserves .section01 .kanto-shops {
+    margin-top: 15px;
+    overflow: hidden;
+    border: 1px solid #a58f86;
+    border-radius: 6px;
+}
+.content .page-reserves .section01 .kanto-shops-toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 15px;
+    border: 0;
+    background: #f4f2ec;
+    color: #685851;
+    font: inherit;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    text-align: left;
+    cursor: pointer;
+}
+.content .page-reserves .section01 .kanto-shops-toggle:focus-visible {
+    outline: 3px solid #685851;
+    outline-offset: -3px;
+}
+.content .page-reserves .section01 .kanto-shops-toggle-icon {
+    flex: 0 0 auto;
+    color: #a58f86;
+    font-size: 1.2rem;
+    transition: transform .25s ease;
+}
+.content .page-reserves .section01 .kanto-shops-toggle-icon.active {
+    transform: rotate(180deg);
+}
+.content .page-reserves .section01 .kanto-shops-panel {
+    padding: 15px;
+    border-top: 1px solid #a58f86;
+    background: #fff;
+}
+.content .page-reserves .section01 .kanto-shops-note {
+    margin: 0 0 12px;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+.content .page-reserves .section01 .shops-kanto .shop {
+    margin-bottom: 15px;
+}
+.content .page-reserves .section01 .shops-kanto .shop:last-child {
+    margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .content .page-reserves .section01 .kanto-shops-toggle-icon {
+        transition: none;
+    }
+}
+
+/* 大阪中崎町店 1周年キャンペーン */
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign {
+    margin-top: 68px; /* リボンが上にはみ出すスペースを確保 */
+    border: 2px solid #758253;
+    flex-wrap: wrap;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon {
+    position: absolute;
+    top: -42px;
+    left: -19px;
+    right: -19px;
+    height: 57px;
+    display: flex;
+    align-items: center;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-left {
+    width: 19px;
+    height: 57px;
+    background: url("/osaka-1518/img/reserves/campaign-ribbon-left.png") no-repeat center center;
+    background-size: contain;
+    flex-shrink: 0;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-center {
+    flex: 1;
+    height: 57px;
+    background: url("/osaka-1518/img/reserves/campaign-ribbon-background.png") repeat-x center center;
+    background-size: auto 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-center img {
+    display: block;
+    width: 264px;
+    height: 57px;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-ribbon .ribbon-right {
+    width: 19px;
+    height: 57px;
+    background: url("/osaka-1518/img/reserves/campaign-ribbon-right.png") no-repeat center center;
+    background-size: contain;
+    flex-shrink: 0;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign .campaign-period {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #5b6a33;
+    padding: 2px 0 8px 0;
+    order: -1;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign::before {
+    top: 60px;
+    border-color: #758253;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign::after {
+    top: 66px;
+    background: #758253;
+}
+.content .page-reserves .section01 .shops .shop.shop-osaka-campaign.active::before {
+    border-color: #758253;
+}
+
+.content .page-reserves .section02 .course-select {
+    margin-bottom: 30px;
+}
+.content .page-reserves .section02 .course-select .input.select {
+    margin-bottom: 13px;
+}
+.content .page-reserves .section02 .course-description {
+    background: #f4f2ec;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+}
+.content .page-reserves .section02 .course-description .title {
+    font-weight: bold;
+}
+.content .page-reserves .section02 .course-description .description {
+
+}
+.content .page-reserves .section02 .course-description .simulator-notice {
+    color: #d32f2f;
+    margin-top: 12px;
+}
+.content .page-reserves .section02 .course-description .simulator-notice .simulator-title {
+    font-weight: bold;
+}
+.content .page-reserves .section02 .course-description .simulator-notice .simulator-link {
+    margin-top: 8px;
+}
+.content .page-reserves .section02 .course-description .simulator-notice .simulator-link a {
+    text-decoration: underline;
+    color: #d32f2f;
+    font-weight: bold;
+}
+.content .page-reserves .section02 .course-notice {
+    border: 2px solid #b33636;
+    margin-bottom: 30px;
+    color: #b33636;
+    padding: 10px 10px 14px 10px;
+}
+.content .page-reserves .section02 .course-notice .notice-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+.content .page-reserves .section02 .course-notice .notice-text {
+    text-align: center;
+    font-size: 1.2rem;
+}
+.content .page-reserves .section02 .course-notice .notice-text a {
+    text-decoration: underline;
+}
+.content .page-reserves .section02 .calendar-select .notice {
+    font-size: 1.2rem;
+    color: #b33636;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+.content .page-reserves .section02 .calendar-select .notice div {
+    margin-bottom: 10px;
+}
+.content .page-reserves .section02 .calendar-select .notice div a {
+    text-decoration: underline;
+}
+.content .page-reserves .section02 .calendar-select .price-revision-notice {
+    color: #d32f2f;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.content .page-reserves .section02 .calendar-select .price-revision-notice a {
+    text-decoration: underline;
+}
+.content .page-reserves .section02 .calendar-select .osaka-campaign-notice {
+    color: #d32f2f;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.content .page-reserves .section02 .calendar {
+    margin-top: 40px;
+}
+.content .page-reserves .section02 .calendar .fc-header-toolbar {
+    padding: 6px 8%;
+    background: #c4c4c4;
+}
+.content .page-reserves .section02 .calendar .fc-header-toolbar .fc-toolbar-chunk .fc-toolbar-title {
+    font-size: 1.6rem;
+}
+.content .page-reserves .section02 .calendar.fc .fc-button-primary,
+.content .page-reserves .section02 .calendar.fc .fc-button-primary:hover {
+    background-color: #685851;
+    border-color: #685851;
+}
+.content .page-reserves .section02 .calendar .fc-h-event .fc-event-main {
+    text-align: center;
+}
+.content .page-reserves .section02 .calendar th.fc-day-sat {
+    color: #3cb5c8;
+    background: #d0edf4;
+}
+.content .page-reserves .section02 .calendar th.fc-day-sun {
+    color: #b33636;
+    background: #f7dce8;
+}
+.content .page-reserves .section02 .calendar .fc-daygrid-event .cercle {
+    color: #b33636;
+}
+.content .page-reserves .section02 .cancel-wait {
+    margin-top: 17px;
+    background: #f4f2ec;
+    padding: 12px 12px 20px 12px;
+}
+.content .page-reserves .section02 .cancel-wait .cancel-description {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 18px;
+}
+.content .page-reserves .section02 .cancel-wait .btn-wait {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.4rem;
+    width: 100%;
+    line-height: 50px;
+    background: #685851;
+    color: #fff;
+    text-align: center;
+}
+.content .page-reserves .section03 .btn-toggle {
+    position: relative;
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    color: #fff;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    background: #685851;
+}
+.content .page-reserves .section03 .btn-toggle::after,
+.content .page-reserves .section03 .btn-toggle::before {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    width: 2px;
+    height: 15px;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+.content .page-reserves .section03 .btn-toggle::after {
+    transform: rotate(90deg);
+}
+.content .page-reserves .section03 .btn-toggle.active::before {
+    transform: rotate(90deg);
+}
+.content .page-reserves .section03 .toggle-item {
+    transition: all .4s ease;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+.content .page-reserves .section03 .toggle-item.active {
+    padding: 23px 0 0 0;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+.content .page-reserves .section03 .desc {
+    margin-bottom: 23px;
+}
+.content .page-reserves .section03 .reserves-ring {
+
+}
+.content .page-reserves .section03 .reserves-ring .item-wrapper {
+    margin-bottom: 50px;
+}
+.content .page-reserves .section03 .reserves-ring .item-title {
+    font-size: 1.6rem;
+    padding-bottom: 6px;
+    border-bottom: 4px solid #9e9e9e;
+    margin-bottom: 24px;
+}
+.content .page-reserves .section03 .reserves-ring .items {
+
+}
+.content .page-reserves .section03 .reserves-ring .items .item {
+    margin-bottom: 20px;
+}
+.content .page-reserves .section03 .baby-select {
+
+}
+.content .page-reserves .section03 .baby-select .txt {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+.content .page-reserves .section03 .baby-select .radio-wrapper {
+    display: flex;
+    margin-bottom: 20px;
+}
+.content .page-reserves .section03 .baby-select .is-baby {
+    width: 10em;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    border: solid 1px #000;
+    margin-right: 1em;
+}
+.content .page-reserves .section03 .baby-select .is-baby.active {
+    border: solid 1px #685851;
+    background: #685851;
+    color: #fff;
+}
+.content .page-reserves .section03 .baby-select .is-baby:last-child {
+    margin-right: 0;
+}
+.content .page-reserves .section04 .item {
+    margin-bottom: 20px;
+}
+.content .page-reserves .section04 .item .txt {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+.content .page-reserves .section04 .item-wrapper {
+    margin-bottom: 50px;
+}
+.content .page-reserves .section04 .item-title {
+    font-size: 1.6rem;
+    padding-bottom: 6px;
+    border-bottom: 4px solid #9e9e9e;
+    margin-bottom: 24px;
+}
+.content .page-reserves .section04 .radio-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.content .page-reserves .section04 .is-wheelchair {
+    width: 150px;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    border: solid 1px #000;
+    margin-right: 1em;
+}
+.content .page-reserves .section04 .is-wheelchair.active {
+    border: solid 1px #685851;
+    background: #685851;
+    color: #fff;
+}
+.content .page-reserves .section04 .is-wheelchair:last-child {
+    margin-right: 0;
+}
+.content .page-reserves .section04 .btn-toggle {
+    position: relative;
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    color: #fff;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    background: #685851;
+}
+.content .page-reserves .section04 .btn-toggle::after,
+.content .page-reserves .section04 .btn-toggle::before {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    width: 2px;
+    height: 15px;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+.content .page-reserves .section04 .btn-toggle::after {
+    transform: rotate(90deg);
+}
+.content .page-reserves .section04 .btn-toggle.active::before {
+    transform: rotate(90deg);
+}
+.content .page-reserves .section04 .toggle-item {
+    transition: all .4s ease;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.content .page-reserves .section04 .toggle-item.active {
+    padding: 23px 0 0 0;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+.content .page-reserves .section05 {}
+.content .page-reserves .section05 .reserve-notice {
+    padding-left:1em;
+    text-indent:-1em;
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+}
+.content .page-reserves .section05 .reserve-notice .item {
+    margin-bottom: 4px;
+}
+.content .page-reserves .section05 .reserve-notice a {
+    text-decoration: underline;
+}
+.content .page-reserves .section05 .btn-submit {
+    font-family: 'Noto Serif JP', serif;
+    padding: 10px 0;
+    background: #685851;
+    text-align: center;
+    color: #fff;
+}
+@media screen and (min-width: 641px) {
+    .content .page-reserves .section04 .radio-wrapper {
+        justify-content: start;
+    }
+}
+
+
+/*
+ * モーダル
+ */
+.page-reserves .modal.time-modal .modal-body .date {
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.page-reserves .modal.time-modal .modal-body .description {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.page-reserves .modal.time-modal .modal-body .times .time {
+    display: block;
+    width: 9em;
+    margin: 0 auto 20px auto;
+    font-size: 2.4rem;
+    line-height: 55px;
+    height: 55px;
+    text-align: center;
+    background: #c9c9c9;
+    color: #fff;
+}
+.page-reserves .modal.time-modal .modal-body .times .time.active {
+    background: #685851;
+}
+.page-reserves .modal.reminder-modal .overlay {
+    background: #000;
+}
+.page-reserves .modal.reminder-modal .close-area {
+    position: fixed;
+    top: 2.3%;
+    right: 5%;
+    z-index: 6;
+    width: 75px;
+    height: 75px;
+    background: #000;
+}
+.page-reserves .modal.reminder-modal .modal-body {
+    background: #fff;
+    height: 95%;
+    overflow: scroll;
+}
+.page-reserves .modal.reminder-modal .reminder-add {
+    padding-bottom: 100px;
+}
+.page-reserves .modal.reminder-modal .close-area .close-icon {}
+.page-reserves .modal.reminder-modal .close-area .close-icon .batsu {
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    margin: 16px auto 0 auto;
+}
+.page-reserves .modal.reminder-modal .close-area .close-icon .batsu::before,
+.page-reserves .modal.reminder-modal .close-area .close-icon .batsu::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 25px;
+    background: #fff;
+}
+.page-reserves .modal.reminder-modal .close-area .close-icon .batsu::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+.page-reserves .modal.reminder-modal .close-area .close-icon .batsu::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+.page-reserves .modal.reminder-modal .close-area .close-txt {
+    font-family: 'Noto Serif JP', serif;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+}
+.page-reserves .modal.reminder-modal .reminder-head {
+    padding: 85px 0 50px 0;
+}
+.page-reserves .modal.reminder-modal .reminder-head .title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.7rem;
+    text-align: center;
+    margin-bottom: 17px;
+}
+.page-reserves .modal.reminder-modal .reminder-head .sub-title {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+.page-reserves .modal.reminder-modal .reminder-head .info {
+    border: solid 1px #000;
+    padding: 14px;
+    font-size: 1.2rem;
+}
+.page-reserves .modal.reminder-modal .reminder-head .info .icon-alert {
+    width: 45px;
+    margin: 0 auto 12px auto;
+}
+.page-reserves .modal.reminder-modal .reminder-head .info .icon-alert img {
+    width: 100%;
+}
+.page-reserves .modal.reminder-modal .reminder-head .info .text {
+    font-size: 1.2rem;
+}
+.page-reserves .modal.reminder-modal .reminder-head .info .text .bold {
+    font-weight: bold;
+}
+.page-reserves .modal.reminder-modal .reminder-form .shops {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.page-reserves .modal.reminder-modal .reminder-form .shops::after {
+    content: "";
+    display: block;
+    width: 140px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .shops .shop {
+    width: 140px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background: #f4f2ec;
+}
+.page-reserves .modal.reminder-modal .reminder-form .shops .shop.active {
+    background: #685851;
+    color: #fff;
+}
+.page-reserves .modal.reminder-modal .reminder-form .shops .shop:nth-child(2n) {
+    margin-right: 0;
+}
+.page-reserves .modal.reminder-modal .reminder-form .shops .shop:last-child {
+    margin-bottom: 0;
+}
+.page-reserves .modal.reminder-modal .reminder-form .shops .shop .shop-title {
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .course-type {}
+.page-reserves .modal.reminder-modal .reminder-form .course-type .course-box {
+    margin-bottom: 24px;
+    background: #f4f2ec;
+    padding: 12px 16px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .course-type .course-box:last-child {
+    margin-bottom: 0;
+}
+.page-reserves .modal.reminder-modal .reminder-form .course-type .course-box.active {
+    color: #fff;
+    background: #685851;
+}
+.page-reserves .modal.reminder-modal .reminder-form .course-type .course-box .title {
+    margin-bottom: 4px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .course-type .course-box .course-label {
+    font-size: 1rem;
+    font-weight: bold;
+}
+.page-reserves .modal.reminder-modal .reminder-form .course-type .course-box .courses {
+    font-size: 1rem;
+}
+.page-reserves .modal.reminder-modal .reminder-form .section03 .item {
+    margin-bottom: 20px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .section03 .item:last-child {
+    margin-bottom: 0;
+}
+.page-reserves .modal.reminder-modal .reminder-form .section03 .item .date {
+    margin-bottom: 14px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .section03 .item .date:last-child {
+    margin-bottom: 0px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .section03 .item .date .dp__main {
+    display: inline-block;
+    width: 257px;
+    margin-right: 10px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .notice {
+    font-size: 1.2rem;
+    line-height: 2;
+}
+.page-reserves .modal.reminder-modal .reminder-form .notice p {
+    padding-left: 1em;
+    text-indent: -1em;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-line {
+    padding: 18px;
+    background: #f4f2ec;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-line .send-header {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-line .send-text {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-line .line-qr {
+    width: 100px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-line .line-qr img {
+    width: 100%;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-line .line-submit {
+    font-family: 'Noto Serif JP', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #685851;
+    height: 50px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-line .line-submit img {
+    width: 35px;
+    margin-right: 20px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-or {
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 10px 0;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-mail {
+    padding: 18px;
+    background: #f4f2ec;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-mail .send-header {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-mail .mail-submit {
+    font-family: 'Noto Serif JP', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #685851;
+    height: 50px;
+    margin-top: 18px;
+}
+.page-reserves .modal.reminder-modal .reminder-form .send-area .send-mail .mail-submit img {
+    width: 35px;
+    margin-right: 20px;
+}
+.page-reserves .modal.reminder-modal .btn-close {
+    font-family: 'Noto Serif JP', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    line-height: 50px;
+    margin: 0 auto;
+    text-align: center;
+    background: #000;
+}
+.page-reserves .modal.reminder-modal .btn-close .btn-icon {
+    position: relative;
+    color: #fff;
+    height: 23px;
+    width: 23px;
+    margin-right: 8px;
+}
+.page-reserves .modal.reminder-modal .btn-close .btn-icon::before,
+.page-reserves .modal.reminder-modal .btn-close .btn-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 23px;
+    background: #fff;
+}
+.page-reserves .modal.reminder-modal .btn-close .btn-icon::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+.page-reserves .modal.reminder-modal .btn-close .btn-icon::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+.page-reserves .modal.reminder-modal .btn-close .btn-txt {
+    color: #fff;
+}
+@media screen and (min-width: 641px) {
+    .page-reserves .modal.reminder-modal .reminder-form .shops {
+        justify-content: start;
+    }
+    .page-reserves .modal.reminder-modal .reminder-form .shops .shop {
+        margin-bottom: 0;
+    }
+    .page-reserves .modal.reminder-modal .reminder-form .shops .shop:nth-child(2n) {
+        margin-right: 15px;
+    }
+}
+.page-reserves .modal.banner-modal .close-area {
+    position: absolute;
+    top: -36px;
+    right: 0;
+    cursor: pointer;
+}
+.page-reserves .modal.banner-modal .close-area .close-icon .batsu {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+.page-reserves .modal.banner-modal .close-area .close-icon .batsu::before,
+.page-reserves .modal.banner-modal .close-area .close-icon .batsu::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 34px;
+    background: #fff;
+}
+.page-reserves .modal.banner-modal .close-area .close-icon .batsu::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+.page-reserves .modal.banner-modal .close-area .close-icon .batsu::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+.page-reserves .modal.banner-modal .modal-body {
+    max-width: 355px;
+}
+.page-reserves .modal.banner-modal .modal-body .inner-body .btn-banner img {
+    width: 100%;
+}
+.page-reserves .modal.banner-modal .overlay {
+    background: #000;
+}
+
+
+/*
+ * 予約確認ページ
+ */
+.page-reserves-confirm .page-header .page-description {
+    font-size: 1.6rem;
+    color: #b33636;
+    font-weight: bold;
+}
+.page-reserves-confirm .reserves-confirm-content {
+    margin-bottom: 40px;
+}
+.page-reserves-confirm .reserves-confirm-content .confirm-description {
+    margin-bottom: 40px;
+}
+.page-reserves-confirm .reserves-confirm-content .btn-confirm {
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-family: 'Noto Serif JP', serif;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #685851 url("/osaka-1518/img/reserves/icon-arrow-04.png") no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    margin-bottom: 40px;
+}
+.page-reserves-confirm .reserves-confirm-content .row {
+    margin-bottom: 14px;
+}
+.page-reserves-confirm .reserves-confirm-content .row .title {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.page-reserves-confirm .reserves-confirm-content .row .value {
+    font-size: 1.6rem;
+}
+.page-reserves-confirm .reserves-confirm-notice {
+    margin-bottom: 40px;
+}
+.page-reserves-confirm .reserves-confirm-notice .txt {
+    font-size: 1.2rem;
+    color: #b33636;
+}
+.page-reserves-confirm .reserves-confirm-submit {
+    padding-bottom: 100px;
+}
+.page-reserves-confirm .reserves-confirm-submit .row .item {}
+.page-reserves-confirm .reserves-confirm-submit .row .item .btn-submit {
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-family: 'Noto Serif JP', serif;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #685851;
+    background-position: right 12px center;
+    background-size: 12px;
+    margin-bottom: 25px;
+}
+.page-reserves-confirm .reserves-confirm-submit .row .item .btn-back {
+    display: block;
+    text-align: center;
+    color: #685851;
+    font-family: 'Noto Serif JP', serif;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: solid 1px #685851;
+    background-size: 12px;
+}
+
+
+/*
+ * 予約完了・アンケート画面
+ */
+ .page-reserves-complete input[type="text"],
+ .page-reserves-complete input[type="tel"],
+ .page-reserves-complete input[type="email"],
+ .page-reserves-complete input[type="date"]
+{
+    border: 1px solid #000;
+    width: 100%;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    padding: 8px;
+}
+.page-reserves-complete select {
+    border: 1px solid #000;
+    width: 100%;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff url("/osaka-1518/img/reserves/icon-arrow-03.png") no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    padding: 8px;
+}
+.page-reserves-complete textarea {
+    border: 1px solid #000;
+    width: 100%;
+    padding: 8px;
+}
+.page-reserves-complete .dp__main input {
+    border: 1px solid #000;
+    width: 100%;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 0 0 34px;
+    font-size: 1.6rem;
+    border-radius: unset;
+}
+.page-reserves-complete .page-header .page-description {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.page-reserves-complete .reserves-complete-content {
+    padding-bottom: 40px;
+}
+.page-reserves-complete .reserves-complete-content .thanks {
+    margin-bottom: 40px;
+}
+.page-reserves-complete .reserves-complete-content .thanks a {
+    text-decoration: underline;
+}
+.page-reserves-complete .reserves-complete-content .thanks .description {
+}
+.page-reserves-complete .reserves-complete-content .thanks .description .color {
+    color: #b33636;
+}
+.page-reserves-complete .reserves-complete-content .link-area {
+    margin-bottom: 70px;
+}
+.page-reserves-complete .reserves-complete-content .link-area .mypage-top {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    background: #685851 url("/osaka-1518/img/reserves/icon-arrow-05.png") no-repeat;
+    background-position: right 20px center;
+    background-size: 8px;
+}
+.page-reserves-complete .reserves-complete-content .mypage {
+    border: solid 1px #000;
+    padding: 20px 20px;
+    margin-bottom: 40px;
+}
+.page-reserves-complete .reserves-complete-content .mypage .mypage-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.page-reserves-complete .reserves-complete-content .mypage .mypage-description .business-hours-notice {
+    color: #b33636;
+}
+.page-reserves-complete .reserves-complete-content .mypage .mypage-login {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    background: #685851 url("/osaka-1518/img/reserves/icon-arrow-05.png") no-repeat;
+    background-position: right 20px center;
+    background-size: 8px;
+    margin: 25px 0;
+}
+.page-reserves-complete .reserves-complete-content .waiting {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.page-reserves-complete .reserves-inquiry {
+    background: #ece9e2;
+    padding: 50px 0 80px 0;
+}
+.page-reserves-complete .reserves-inquiry .title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.page-reserves-complete .reserves-inquiry .description {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+}
+.page-reserves-complete .reserves-inquiry .item {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+}
+.page-reserves-complete .reserves-inquiry .item .label {
+    margin-bottom: 6px;
+}
+.page-reserves-complete .reserves-inquiry .item .textarea {
+    display: none;
+    margin-top: 10px;
+}
+.page-reserves-complete .reserves-inquiry .btn-submit {
+    font-family: 'Noto Serif JP', serif;
+    height: 50px;
+    line-height: 50px;
+    background: #685851;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    margin-top: 32px;
+}
+
+
+/*
+ * アンケート完了ページ
+ */
+.page-inquiries-complete .page-header .page-description {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.page-inquiries-complete .inquiries-complete-content {
+    padding-bottom: 80px;
+}
+.page-inquiries-complete .inquiries-complete-content .thanks {
+    margin-bottom: 80px;
+}
+.page-inquiries-complete .inquiries-complete-content .btn-login {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    background: #685851 url("/osaka-1518/img/reserves/icon-arrow-05.png") no-repeat;
+    background-position: right 20px center;
+    background-size: 8px;
+}
+
+
+/*
+ * ログインページ
+ */
+.content .page-users-login select {
+    border: 1px solid #000;
+    width: 100%;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("/osaka-1518/img/reserves/icon-arrow-03.png") no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    padding: 8px;
+}
+.content .page-users-login input[type="text"],
+.content .page-users-login input[type="tel"],
+.content .page-users-login input[type="email"],
+.content .page-users-login input[type="date"]
+{
+    font-size: 1.6rem;
+    border: 1px solid #000;
+    width: 100%;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 8px;
+}
+.content .page-users-login textarea {
+    width: 100%;
+    border: solid 1px #000;
+    padding: 8px;
+}
+.content .page-users-login .input.select.error select {
+    border: 1px solid #b33636;
+}
+.content .page-users-login .input.text.error input {
+    border: 1px solid #b33636;
+}
+.content .page-users-login .input.tel.error input {
+    border: 1px solid #b33636;
+}
+.content .page-users-login .input.email.error input {
+    border: 1px solid #b33636;
+}
+.content .page-users-login .page-error {
+    color: #b33636;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.content .page-users-login .error-message {
+    color: #b33636;
+    font-size: 1.2rem;
+}
+.content .page-users-login .section {
+    padding: 0 0 35px 0;
+}
+.content .page-users-login .section .section-label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.6rem;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 35px;
+    background-image: url("/osaka-1518/img/reserves/bg-section-label.png");
+    background-size: cover;
+    color: #fff;
+}
+.content .page-users-login .section .txt {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+.content .page-users-login .btn-submit {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 60px;
+    height: 60px;
+    width: 280px;
+    text-align: center;
+    color: #fff;
+    background: #685851;
+    margin: 40px auto;
+}
+.content .page-users-login .link-area {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Serif JP', serif;
+}
+.content .page-users-login .link-area .lost-password {
+    font-size: 1.2rem;
+    width: max-content;
+    margin-left: auto;
+    display: block;
+    border-bottom: 1px solid #000;
+    background: url("/osaka-1518/img/reserves/icon-arrow-06.png") no-repeat;
+    background-position: right center;
+    background-size: 8px;
+    padding-right: 15px;
+    margin-bottom: 15px;
+}
+.content .page-users-login .link-area .other-site {
+    font-size: 1.2rem;
+    width: max-content;
+    margin-left: auto;
+    display: block;
+    border-bottom: 1px solid #000;
+    background: url("/osaka-1518/img/reserves/icon-arrow-06.png") no-repeat;
+    background-position: right center;
+    background-size: 8px;
+    padding-right: 15px;
+    margin-bottom: 40px;
+}
+
+
+/*
+ * 予約番号忘れ
+ */
+.content .page-users-lost-number input[type="text"],
+.content .page-users-lost-number input[type="tel"],
+.content .page-users-lost-number input[type="email"],
+.content .page-users-lost-number input[type="date"]
+{
+    font-size: 1.6rem;
+    border: 1px solid #000;
+    width: 100%;
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 8px;
+}
+.content .page-users-lost-number .page-error {
+    color: #b33636;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.content .page-users-lost-number .section {
+    padding: 0 0 35px 0;
+}
+.content .page-users-lost-number .section .section-label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.6rem;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 35px;
+    background-image: url("/osaka-1518/img/reserves/bg-section-label.png");
+    background-size: cover;
+    color: #fff;
+}
+.content .page-users-lost-number .btn-submit {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 60px;
+    height: 60px;
+    width: 280px;
+    text-align: center;
+    color: #fff;
+    background: #685851;
+    margin: 40px auto;
+}
+.content .page-users-lost-number .link-area {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Serif JP', serif;
+}
+.content .page-users-lost-number .link-area .user-login {
+    width: max-content;
+    margin-left: auto;
+    display: block;
+    border-bottom: 1px solid #000;
+    background: url("/osaka-1518/img/reserves/icon-arrow-06.png") no-repeat;
+    background-position: right center;
+    background-size: 8px;
+    padding-right: 15px;
+    margin-bottom: 40px;
+}
+
+
+/*
+ * マイページTOP
+ */
+.content .page-reserves-detail .mypage-menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+}
+.content .page-reserves-detail .mypage-menu .btn-menu {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: end;
+    align-items: center;
+    background: #685851;
+    width: 75px;
+    height: 75px;
+}
+.content .page-reserves-detail .mypage-menu .btn-menu.btn-menu01 img {
+    width: 37px;
+}
+.content .page-reserves-detail .mypage-menu .btn-menu.btn-menu02 img {
+    width: 20px;
+}
+.content .page-reserves-detail .mypage-menu .btn-menu.btn-menu03 img {
+    width: 32px;
+}
+.content .page-reserves-detail .mypage-menu .btn-menu.btn-menu04 img {
+    width: 27px;
+}
+.content .page-reserves-detail .mypage-menu .btn-menu.talk .num {
+    position: absolute;
+    top: -10px;
+    right: -4px;
+    color: #fff;
+    background: #b33636;
+    border-radius: 50%;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.content .page-reserves-detail .mypage-menu .btn-menu .text {
+    font-family: 'Noto Serif JP', serif;
+    color: #fff;
+    font-size: 1rem;
+    margin: 8px 0 2px 0;
+}
+.content .page-reserves-detail .section .section-label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.6rem;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 35px;
+    background-image: url("/osaka-1518/img/reserves/bg-section-label.png");
+    background-size: cover;
+    color: #fff;
+}
+.content .page-reserves-detail .section01 .reserve-box {
+    background: #f4f2ec;
+    padding: 15px 15px 30px 15px;
+    margin-bottom: 48px;
+}
+.content .page-reserves-detail .section01 .reserve-box .box-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.content .page-reserves-detail .section01 .reserve-box .box-header .status {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #b33636;
+    padding: 6px 10px;
+    margin-right: 10px;
+}
+.content .page-reserves-detail .section01 .reserve-box .box-header .status.canceled {
+    font-size: 1rem;
+    background: #9e9e9e;
+}
+.content .page-reserves-detail .section01 .reserve-box .box-header .status.expired {
+    font-size: 1rem;
+    background: #9e9e9e;
+}
+.content .page-reserves-detail .section01 .reserve-box .box-header .date {
+
+}
+.content .page-reserves-detail .section01 .reserve-box .item-header {
+    margin-bottom: 15px;
+}
+.content .page-reserves-detail .section01 .reserve-box .item-header .label {
+    font-weight: bold;
+}
+.content .page-reserves-detail .section01 .reserve-box .item-header .text {
+
+}
+.content .page-reserves-detail .section01 .reserve-box .item-header .text .link {
+    color: #001dff;
+    text-decoration: underline;
+}
+.content .page-reserves-detail .section01 .reserve-box .btn-accordion {
+    font-family: 'Noto Serif JP', serif;
+    position: relative;
+    display: block;
+    color: #fff;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    background: #685851;
+}
+.content .page-reserves-detail .section01 .reserve-box .btn-accordion::before,
+.content .page-reserves-detail .section01 .reserve-box .btn-accordion::after {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    width: 2px;
+    height: 15px;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+.content .page-reserves-detail .section01 .reserve-box .btn-accordion::after {
+    transform: rotate(90deg);
+}
+.content .page-reserves-detail .section01 .reserve-box .btn-accordion.close::before {
+    transform: rotate(90deg);
+}
+.content .page-reserves-detail .section01 .reserve-box .reserve-accordion {
+    padding: 20px 0 0 0;
+}
+.content .page-reserves-detail .section01 .reserve-box .reserve-accordion .row {
+    display: flex;
+    align-items: start;
+    margin-bottom: 10px;
+}
+.content .page-reserves-detail .section01 .reserve-box .reserve-accordion .row .title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 10em;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+.content .page-reserves-detail .section01 .reserve-box .reserve-accordion .row .value {
+    flex: 1;
+}
+.content .page-reserves-detail .section01 .reserve-box .link-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+    margin-bottom: 30px;
+}
+.content .page-reserves-detail .section01 .reserve-box .link-area .link {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.3rem;
+    display: block;
+    width: 140px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    margin-right: 6px;
+    background: #685851;
+    color: #fff;
+}
+.content .page-reserves-detail .section01 .reserve-box .link-area .link.disabled {
+    background: #dcdcdc;
+}
+.content .page-reserves-detail .section01 .reserve-box .link-area .link:last-child {
+    margin-right: 0;
+}
+.content .page-reserves-detail .section01 .reserve-box .cancel-area {
+    text-align: center;
+}
+.content .page-reserves-detail .section01 .reserve-box .cancel-area .btn-cancel {
+    font-size: 1.2rem;
+    color: #646464;
+    text-decoration: underline;
+}
+.content .page-reserves-detail .section01 .reserve-box .cancel-area .btn-cancel.disabled {
+    color: #dcdcdc;
+}
+.content .page-reserves-detail .section01 .reserve-box .note {
+    font-size: 1.2rem;
+    border: solid 1px #b3aaa4;
+    background: #fff;
+    padding: 12px;
+    margin-top: 20px;
+}
+.content .page-reserves-detail .section01 .reserve-box .note .link {
+    color: #001dff;
+}
+.content .page-reserves-detail .section02 .change-log {
+    margin-bottom: 50px;
+}
+.content .page-reserves-detail .section02 .change-log .row {
+    padding: 10px 16px;
+    border-bottom: 1px solid #f4f2ec;
+}
+.content .page-reserves-detail .section02 .change-log .row:first-child {
+    border-top: 1px solid #f4f2ec;
+}
+.content .page-reserves-detail .section02 .change-log .row .title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.content .page-reserves-detail .section02 .change-log .row .value {}
+.content .page-reserves-detail .section03 .description {
+    margin-bottom: 15px;
+}
+.content .page-reserves-detail .section03 .send-line {
+    padding: 18px;
+    background: #f4f2ec;
+    margin-bottom: 60px;
+}
+.content .page-reserves-detail .section03 .send-line .send-header {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.content .page-reserves-detail .section03 .send-line .send-text {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+}
+.content .page-reserves-detail .section03 .send-line .send-text .color {
+    color: #b33636;
+}
+.content .page-reserves-detail .section03 .send-line .line-qr {
+    width: 100px;
+}
+.content .page-reserves-detail .section03 .send-line .line-qr img {
+    width: 100%;
+}
+.content .page-reserves-detail .section03 .send-line .line-submit {
+    font-family: 'Noto Serif JP', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #685851;
+    height: 50px;
+}
+.content .page-reserves-detail .section03 .send-line .line-submit img {
+    width: 35px;
+    margin-right: 20px;
+}
+@media screen and (min-width: 641px) {
+    .content .page-reserves-detail .mypage-menu {
+        justify-content: start;
+    }
+    .content .page-reserves-detail .mypage-menu .btn-menu {
+        margin-right: 10px;
+    }
+}
+
+
+/*
+ * マイページ予約キャンセル
+ */
+.content .page-reserves-cancel-confirm textarea {
+    width: 100%;
+    border: solid 1px #000;
+    padding: 8px;
+}
+.content .page-reserves-cancel-confirm .radio {
+    display: block;
+    margin-bottom: 10px;
+}
+.content .page-reserves-cancel-confirm .radio .radio-input {
+    appearance: none;
+    position: absolute;
+}
+.content .page-reserves-cancel-confirm .radio .radio-text {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.content .page-reserves-cancel-confirm .radio .radio-text::before {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    border: 1px solid #000;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+.content .page-reserves-cancel-confirm .radio .radio-input:checked + .radio-text::after {
+    content: '';
+    position: absolute;
+    left: calc(8px - 5px);
+    display: block;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+}
+.content .page-reserves-cancel-confirm .section .section-label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.6rem;
+    padding: 9px 0;
+    margin-bottom: 35px;
+    background-image: url("/osaka-1518/img/reserves/bg-section-label.png");
+    background-size: cover;
+    color: #fff;
+}
+.content .page-reserves-cancel-confirm .section01 .reserve-box {
+    border: solid 1px #000000;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+.content .page-reserves-cancel-confirm .section01 .reserve-box .row {
+    display: flex;
+    align-items: start;
+    margin-bottom: 8px;
+}
+.content .page-reserves-cancel-confirm .section01 .reserve-box .row .title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 10em;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+.content .page-reserves-cancel-confirm .section01 .reserve-box .row .value {
+    flex: 1;
+}
+.content .page-reserves-cancel-confirm .section02 {
+    margin-bottom: 60px;
+}
+.content .page-reserves-cancel-confirm .section02 .btn-cancel {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.4rem;
+    width: 100%;
+    line-height: 50px;
+    background: #685851;
+    color: #fff;
+    text-align: center;
+    margin: 40px 0;
+}
+.content .page-reserves-cancel-confirm .section02 .link-area {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Serif JP', serif;
+}
+.content .page-reserves-cancel-confirm .section02 .link-area .link-top {
+    width: max-content;
+    margin-left: auto;
+    display: block;
+    border-bottom: 1px solid #000;
+    background: url("/osaka-1518/img/reserves/icon-arrow-06.png") no-repeat;
+    background-position: right center;
+    background-size: 8px;
+    padding-right: 15px;
+}
+.content .page-reserves-cancel-confirm .modal .modal-body {
+    width: 240px;
+}
+.content .page-reserves-cancel-confirm .modal .modal-body .description {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.content .page-reserves-cancel-confirm .modal .modal-body .btn-click {
+    font-family: 'Noto Serif JP', serif;
+    display: block;
+    line-height: 55px;
+    height: 55px;
+    text-align: center;
+    background: #685851;
+    color: #fff;
+}
+.content .page-reserves-cancel-confirm .modal .modal-body .btn-submit {
+    margin-bottom: 20px;
+}
+.content .page-reserves-cancel-confirm .modal .overlay {
+    opacity: 0.9;
+}
+
+
+/*
+ * マイページ予約キャンセル - 完了
+ */
+.content .page-reserves-cancel-complete .section01 .reserve-box {
+    border: solid 1px #000000;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+.content .page-reserves-cancel-complete .section01 .reserve-box .row {
+    display: flex;
+    align-items: start;
+    margin-bottom: 8px;
+}
+.content .page-reserves-cancel-complete .section01 .reserve-box .row .title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 10em;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+.content .page-reserves-cancel-complete .section01 .reserve-box .row .value {
+    flex: 1;
+}
+.content .page-reserves-cancel-complete .section01 .btn-reserve {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.4rem;
+    width: 100%;
+    line-height: 50px;
+    background: #685851;
+    color: #fff;
+    text-align: center;
+    margin: 40px 0 60px 0;
+}
+
+
+/*
+ * トークルーム
+ */
+.content .page-talk-rooms-index {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background: #f4f2ec;
+}
+.content .page-talk-rooms-index .date-group {
+    display: block;
+    background: #fff;
+    width: 140px;
+    text-align: center;
+    border-radius: 16px;
+    font-size: 1.2rem;
+    margin: 0 auto 20px auto;
+}
+.content .page-talk-rooms-index .talk-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.content .page-talk-rooms-index .talk-wrap.left .chat-name {
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+    background-size: cover;
+    background-image: url("/osaka-1518/img/reserves/icon-logo03.png");
+}
+.content .page-talk-rooms-index .talk-wrap.left .chat-text {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    padding: 8px;
+    margin-right: 8px;
+}
+.content .page-talk-rooms-index .talk-wrap.left .chat-text .chat-file img {
+    width: 100%;
+}
+.content .page-talk-rooms-index .talk-wrap.left .chat-time {
+    margin-left: auto;
+    margin-top: auto;
+    font-size: 1rem;
+    color: #505050;
+}
+.content .page-talk-rooms-index .talk-wrap.right .chat-time {
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: 8px;
+    font-size: 1rem;
+    color: #505050;
+}
+.content .page-talk-rooms-index .talk-wrap.right .chat-text {
+    flex: 1;
+    background: #866c61;
+    color: #fff;
+    border-radius: 12px;
+    padding: 8px;
+}
+.content .page-talk-rooms-index .talk-wrap.right .chat-text .chat-file img {
+    width: 100%;
+}
+.content .page-talk-rooms-index .send-area {
+    position: fixed;
+    width: 100%;
+    max-width: 750px;
+    bottom: 0;
+    background: #fff;
+}
+.content .page-talk-rooms-index .send-area .file01 {
+    display: none;
+}
+.content .page-talk-rooms-index .send-area .controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+.content .page-talk-rooms-index .send-area .controls .btn-modal-open {
+    width: 40px;
+    margin-right: 10px;
+}
+.content .page-talk-rooms-index .send-area .controls .btn-modal-open img {
+    width: 100%;
+}
+.content .page-talk-rooms-index .send-area .controls textarea {
+    flex: 1;
+    font-size: 1.6rem;
+    background: #f0f0f0;
+    margin-right: 10px;
+    padding: 0 8px;
+}
+.content .page-talk-rooms-index .send-area .controls .btn-submit {
+    font-family: 'Noto Serif JP', serif;
+    margin-left: auto;
+    background: #685851;
+    color: #fff;
+    padding: 0 14px;
+}
+.content .page-talk-rooms-index .modal.cancel-modal .modal-body {
+    color: #fff;
+}
+.content .page-talk-rooms-index .modal.cancel-modal .modal-body .chat-file {
+    background: #fff;
+    margin-bottom: 25px;
+    color: #000;
+    font-size: 1.6rem;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+.content .page-talk-rooms-index .modal.cancel-modal .modal-body .chat-file .row {
+    position: relative;
+    line-height: 60px;
+    padding: 0 15px;
+}
+.content .page-talk-rooms-index .modal.cancel-modal .modal-body .chat-file .row::after {
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    content: url("/osaka-1518/img/reserves/icon-camera03.png");
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+}
+.content .page-talk-rooms-index .modal.cancel-modal .modal-body .chat-file .row .label {}
+.content .page-talk-rooms-index .modal.cancel-modal .modal-body .btn-click {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    width: 240px;
+    margin: 0 auto;
+    font-size: 1.6rem;
+    line-height: 55px;
+    height: 55px;
+    text-align: center;
+    background: #fff;
+    color: #000;
+}
+.content .page-talk-rooms-index .modal.cancel-modal .overlay {
+    background: #000;
+    opacity: 0.9;
+}
+
+
+/*
+ * アフターケア
+ */
+.page-aftercares-add input[type="text"],
+.page-aftercares-add input[type="tel"],
+.page-aftercares-add input[type="email"],
+.page-aftercares-add input[type="date"]
+{
+     border: 1px solid #000;
+     width: 100%;
+     height: 50px;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     background-color: #fff;
+     padding: 8px;
+}
+.page-aftercares-add select {
+     border: 1px solid #000;
+     width: 100%;
+     height: 50px;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     background: #fff url("/osaka-1518/img/reserves/icon-arrow-03.png") no-repeat;
+     background-position: right 8px center;
+     background-size: 12px;
+     padding: 8px;
+}
+.page-aftercares-add textarea {
+     border: 1px solid #000;
+     width: 100%;
+     padding: 8px;
+}
+.page-aftercares-add .radio-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.page-aftercares-add input[type="radio"] {
+    display: none;
+}
+.page-aftercares-add input[type="radio"] + label {
+    display: inline-block;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.page-aftercares-add input[type="radio"]:checked + label {
+    border: solid 1px #685851;
+    background: #685851;
+    color: #fff;
+}
+.page-aftercares-add .radio-wrapper.radio-col2 input[type="radio"] + label {
+    width: 150px;
+}
+.page-aftercares-add .radio-wrapper.radio-col3 input[type="radio"] + label {
+    width: 100px;
+}
+.page-aftercares-add .input.select.error select {
+    border: 2px solid #b33636;
+}
+.page-aftercares-add .input.text.error input {
+    border: 2px solid #b33636;
+}
+.page-aftercares-add .input.tel.error input {
+    border: 2px solid #b33636;
+}
+.page-aftercares-add .input.email.error input {
+    border: 2px solid #b33636;
+}
+.page-aftercares-add .page-error {
+    color: #b33636;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.page-aftercares-add .error-message {
+    color: #b33636;
+    font-size: 1.2rem;
+}
+.page-aftercares-add .section {
+    padding: 0 0 35px 0;
+}
+.page-aftercares-add .section01 .item,
+.page-aftercares-add .section02 .item,
+.page-aftercares-add .section03 .item,
+.page-aftercares-add .section04 .item,
+.page-aftercares-add .section05 .item {
+    margin-bottom: 20px;
+}
+.page-aftercares-add .form-label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.4rem;
+    height: 80px;
+    line-height: 80px;
+    background-image: url("/osaka-1518/img/aftercares/bg-form-label.png");
+    background-size: cover;
+}
+.page-aftercares-add .section .section-label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.6rem;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 35px;
+    background-image: url("/osaka-1518/img/aftercares/bg-section-label.png");
+    background-size: cover;
+    color: #fff;
+}
+.page-aftercares-add .section .label {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+.page-aftercares-add .section .label .link-image {
+    position: relative;
+    margin-left: 10px;
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+.page-aftercares-add .section .label .link-image::before {
+    position: relative;
+    content: '';
+    display: inline-block;
+    background-image: url("/osaka-1518/img/aftercares/icon-hatena.png");
+    background-size: contain;
+    top: 3px;
+    margin-right: 4px;
+    width: 20px;
+    height: 20px;
+}
+.page-aftercares-add .section .tag {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    padding: 0 4px 2px 4px;
+}
+.page-aftercares-add .section .tag.required {
+    color: #fff;
+    background: #b33636;
+}
+.page-aftercares-add .section .tag.optional {
+    color: #fff;
+    background: #9e9e9e;
+}
+.page-aftercares-add .header-link-area {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Serif JP', serif;
+    margin-bottom: 35px;
+}
+.page-aftercares-add .header-link-area .btn-link {
+    font-size: 1.2rem;
+    display: block;
+    width: max-content;
+    border-bottom: 1px solid #000;
+    background: url("/osaka-1518/img/aftercares/icon-arrow-06.png") no-repeat;
+    background-position: right center;
+    background-size: 8px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+}
+.page-aftercares-add .notice {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #b33636;
+}
+.page-aftercares-add .notice a {
+    text-decoration: underline;
+}
+.page-aftercares-add .production-date-select {
+    display: flex;
+    justify-content: space-between;
+}
+.page-aftercares-add .production-date-select select {
+    width: 100px;
+}
+.page-aftercares-add .postal-code-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.page-aftercares-add .postal-code-wrapper .postal-code {
+    width: 100px;
+}
+.page-aftercares-add .postal-code-wrapper .btn-postal-code {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: solid 1px #685851;
+    background: #685851;
+    color: #fff;
+    font-size: 1.2rem;
+}
+.page-aftercares-add .section06 {
+    padding: 0 0 70px 0;
+}
+.page-aftercares-add .section06 .aftercare-notice {
+    padding-left: 1em;
+    text-indent: -1em;
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+}
+.page-aftercares-add .section06 .aftercare-notice .item {
+    margin-bottom: 4px;
+}
+.page-aftercares-add .section06 .aftercare-notice a {
+    text-decoration: underline;
+}
+.page-aftercares-add .section06 .btn-submit {
+    font-family: 'Noto Serif JP', serif;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background: #685851;
+    text-align: center;
+    color: #fff;
+}
+.page-aftercares-add .modal.aftercare-modal .overlay {
+    background: #000;
+    z-index: 9992;
+}
+.page-aftercares-add .modal.aftercare-modal .close-area {
+    position: fixed;
+    top: 2.3%;
+    right: 5%;
+    z-index: 9994;
+    width: 75px;
+    height: 75px;
+    background: #000;
+}
+.page-aftercares-add .modal.aftercare-modal .modal-body {
+    background: #fff;
+    height: 95%;
+    overflow: scroll;
+    z-index: 9993;
+}
+.page-aftercares-add .modal.aftercare-modal .aftercare-add {
+    padding-bottom: 100px;
+}
+.page-aftercares-add .modal.aftercare-modal .close-area .close-icon .batsu {
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    margin: 16px auto 0 auto;
+}
+.page-aftercares-add .modal.aftercare-modal .close-area .close-icon .batsu::before,
+.page-aftercares-add .modal.aftercare-modal .close-area .close-icon .batsu::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 25px;
+    background: #fff;
+}
+.page-aftercares-add .modal.aftercare-modal .close-area .close-icon .batsu::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+.page-aftercares-add .modal.aftercare-modal .close-area .close-icon .batsu::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+.page-aftercares-add .modal.aftercare-modal .close-area .close-txt {
+    font-family: 'Noto Serif JP', serif;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+}
+.page-aftercares-add .modal.aftercare-modal .aftercare-head {
+    padding: 85px 0 50px 0;
+}
+.page-aftercares-add .modal.aftercare-modal .aftercare-head .title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.1rem;
+    text-align: center;
+    margin-bottom: 17px;
+}
+.page-aftercares-add .modal.aftercare-modal .item-wrapper .item {
+    display: flex;
+    margin-bottom: 40px;
+}
+.page-aftercares-add .modal.aftercare-modal .item-wrapper .item .item-image {
+    width: 117px;
+    margin-right: 12px;
+}
+.page-aftercares-add .modal.aftercare-modal .item-wrapper .item .item-image img {
+    width: 100%;
+}
+.page-aftercares-add .modal.aftercare-modal .item-wrapper .item .item-info {
+    padding-top: 40px;
+}
+.page-aftercares-add .modal.aftercare-modal .item-wrapper .item .item-info .item-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.9rem;
+}
+.page-aftercares-add .modal.aftercare-modal .item-wrapper .item .item-info .item-link {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+}
+.page-aftercares-add .modal.aftercare-modal .item-wrapper .item .item-info .item-link a .arrow img {
+    display: inline-block;
+    width: 30px;
+    margin-left: 8px;
+    margin-bottom: 4px;
+}
+.page-aftercares-add .modal.aftercare-modal .btn-close {
+    font-family: 'Noto Serif JP', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    line-height: 50px;
+    margin: 0 auto;
+    text-align: center;
+    background: #000;
+}
+.page-aftercares-add .modal.aftercare-modal .btn-close .btn-icon {
+    position: relative;
+    color: #fff;
+    height: 23px;
+    width: 23px;
+    margin-right: 8px;
+}
+.page-aftercares-add .modal.aftercare-modal .btn-close .btn-icon::before,
+.page-aftercares-add .modal.aftercare-modal .btn-close .btn-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 23px;
+    background: #fff;
+}
+.page-aftercares-add .modal.aftercare-modal .btn-close .btn-icon::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+.page-aftercares-add .modal.aftercare-modal .btn-close .btn-icon::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+.page-aftercares-add .modal.aftercare-modal .btn-close .btn-txt {
+    color: #fff;
+}
+@media screen and (min-width: 641px) {
+    .page-aftercares-add .radio-wrapper {
+        justify-content: start;
+    }
+    .page-aftercares-add .radio-wrapper.radio-col2 input[type="radio"] + label {
+        margin-right: 10px;
+    }
+    .page-aftercares-add .radio-wrapper.radio-col3 input[type="radio"] + label {
+        margin-right: 10px;
+    }
+    .page-aftercares-add .production-date-select {
+        justify-content: start;
+    }
+    .page-aftercares-add .production-date-select select {
+        margin-right: 10px;
+    }
+    .page-aftercares-add .postal-code-wrapper {
+        justify-content: start;
+    }
+    .page-aftercares-add .postal-code-wrapper .postal-code {
+        width: 100px;
+        margin-right: 10px;
+    }
+    .page-aftercares-add .postal-code-wrapper .btn-postal-code {
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border: solid 1px #685851;
+        background: #685851;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+}
+
+
+/*
+ * アフターケア完了
+ */
+.page-aftercares-complete .page-header .page-description {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.page-aftercares-complete .aftercares-complete-content {
+    padding-bottom: 40px;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-area {
+    display: flex;
+    gap: 0 15px;
+    margin-left: 5.3%;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-area .tab {
+    width: 150px;
+    padding: 10px 0;
+    text-align: center;
+    color: #a58f86;
+    border-top: 1px solid #a58f86;
+    border-left: 1px solid #a58f86;
+    border-right: 1px solid #a58f86;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-area .tab.active {
+    color: #fff;
+    background: #685851;
+    border-top: 1px solid #685851;
+    border-left: 1px solid #685851;
+    border-right: 1px solid #685851;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content {
+    border: solid 1px #a58f86;
+    border-left: none;
+    width: 94.7%;
+    padding: 20px 5.3%;
+    background: #f4f2ec;
+    font-size: 1.2rem;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content p {
+    margin-bottom: 10px;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content .bold {
+    font-weight: bold;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content .rows {
+    padding-left: 1em;
+    text-indent: -1em;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content .rows .row {
+    margin-bottom: 4px;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content .packing {
+    margin-top: 24px;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content .packing .title {
+    font-size: 1.4rem;
+    text-align: center;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content .packing .image {
+    margin-top: 10px;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content .packing .image img {
+    width: 100%;
+}
+.page-aftercares-complete .aftercares-complete-content .main-area .tab-content .packing .txt {
+    margin-top: 4px;
+}
+.page-aftercares-complete .aftercares-complete-content .notice {
+    margin: 30px 5.3% 0 5.3%;
+    font-size: 1.2rem;
+}
+.page-aftercares-complete .aftercares-complete-content .notice p {
+    margin-bottom: 10px;
+}
+.page-aftercares-complete .aftercares-complete-content .notice .color {
+    color: #b33636;
+}
+.page-aftercares-complete .aftercares-complete-content .notice a {
+    text-decoration: underline;
+}
+.page-aftercares-complete .aftercares-complete-content .link-area {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.page-aftercares-complete .aftercares-complete-content .link-area .mypage-top {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    background: #685851 url("/osaka-1518/img/reserves/icon-arrow-05.png") no-repeat;
+    background-position: right 20px center;
+    background-size: 8px;
+}
