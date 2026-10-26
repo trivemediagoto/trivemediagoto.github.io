@@ -82,7 +82,6 @@ button { font: inherit; }
 .flow-list h4 { margin-bottom: 8px; font-size: 15px; font-weight: 500; line-height: 1.5; }
 .flow-list p { margin-bottom: 0; font-size: 13px; line-height: 1.85; }
 .flow-list .flow-list__note { margin-top: 10px; font-size: 12px; line-height: 1.8; }
-.download-button { width: 100%; margin-top: 14px; padding: 14px 16px; display: flex; justify-content: space-between; border: 1px solid #444; background: #444; color: #fff; font-size: 12px; cursor: default; opacity: 1; }
 
 .conditions__heading { margin: 0 0 15px; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 17px; font-weight: 400; line-height: 1.5; }
 .conditions__heading--notice { margin-top: 40px; }
@@ -93,6 +92,8 @@ button { font: inherit; }
 .conditions { margin: 0; padding-left: 1.3em; font-size: 13px; line-height: 1.9; }
 .conditions li + li { margin-top: 13px; }
 .conditions strong { font-weight: 700; }
+.conditions-note { margin: 16px 0 0; font-size: 12px; line-height: 1.85; }
+.conditions-note a { text-underline-offset: 3px; }
 
 /* 既存ページ末尾の関連オプションは実画像をそのまま利用 */
 .other__inner { padding: 60px 20px 70px; background: url("assets/bg-other.jpg") left top / 100% auto no-repeat; }
