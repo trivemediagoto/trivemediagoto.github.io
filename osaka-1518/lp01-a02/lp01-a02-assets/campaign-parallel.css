@@ -35,3 +35,6 @@
   .campaign-banner__name { font-size: 1.0625rem; }
   .campaign-banner__value strong { font-size: 2.25rem; }
 }
+/* 1枚版は掲載内容に合わせて上下の余白を詰める。 */
+.campaign-pair--single .campaign-banner__visual { min-height: 0; }
+.campaign-pair--single .campaign-banner__body { padding-block: .625rem; }
