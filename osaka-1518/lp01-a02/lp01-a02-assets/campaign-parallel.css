@@ -1,0 +1,37 @@
+/* 同じ写真比率・文字の階層・余白で、2つのキャンペーンを対等に案内する。 */
+.campaign-pair { color: var(--color-ink); margin-bottom: 1.5rem; text-align: left; scroll-margin-top: 1.5rem; }
+.campaign-pair__title { font-size: 1.375rem; line-height: 1.6; letter-spacing: .06em; text-align: center; margin: 0 0 1.25rem; }
+.campaign-pair__list { display: grid; gap: 1rem; }
+.campaign-banner { border: 1px solid var(--color-line); background: var(--color-paper); }
+.campaign-banner summary { display: block; list-style: none; cursor: pointer; }
+.campaign-banner summary::-webkit-details-marker { display: none; }
+.campaign-banner summary:focus-visible { outline: 2px solid var(--color-green); outline-offset: 4px; }
+.campaign-banner__visual { display: grid; grid-template-columns: 34% minmax(0, 1fr); min-height: 12.5rem; }
+.campaign-banner__photo { display: block; overflow: hidden; }
+.campaign-banner__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 70% 48%; }
+.campaign-banner--osaka .campaign-banner__photo img { object-position: 50% 54%; }
+.campaign-banner__body { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: .875rem .8125rem; min-width: 0; }
+.campaign-banner__edition { font: 500 .625rem/1.6 var(--font-body); color: var(--color-green); letter-spacing: .08em; }
+.campaign-banner__period { display: block; font-size: .5625rem; line-height: 1.8; white-space: nowrap; letter-spacing: .015em; margin-top: .125rem; }
+.campaign-banner__lead { display: block; font-size: .625rem; line-height: 1.8; margin-top: .4375rem; }
+.campaign-banner__name { display: block; font: 400 .9375rem/1.6 var(--font-display); letter-spacing: .01em; margin-top: .1875rem; }
+.campaign-banner__name > span { display: block; white-space: nowrap; }
+.campaign-banner__name small { font-size: .72em; }
+.campaign-banner__value { display: flex; align-items: baseline; gap: .1875rem; color: var(--color-green); line-height: 1.2; margin-top: .5rem; white-space: nowrap; }
+.campaign-banner__value strong { font: 400 2rem/1 var(--font-latin); letter-spacing: -.025em; }
+.campaign-banner__value small { font-size: .625rem; }
+.campaign-banner__value > span { font-family: var(--font-display); font-size: 1.125rem; }
+.campaign-banner__qualifier { display: block; font-size: .5625rem; line-height: 1.6; margin-top: .375rem; }
+.campaign-banner__more { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: .5rem .875rem; gap: .75rem; border-top: 1px solid var(--color-line); font: 400 .625rem/1.6 var(--font-body); }
+.campaign-banner__toggle::after { content: '+'; font-size: 1rem; }
+.campaign-banner[open] .campaign-banner__toggle::after { content: '−'; }
+.campaign-banner__details { padding: 1rem; border-top: 1px solid var(--color-line); background: var(--color-paper-light); font-size: .6875rem; line-height: 1.9; }
+.campaign-banner__details p + p { margin-top: .75rem; }
+.campaign-banner__details ul { padding-left: 1.2em; margin: .5rem 0 .75rem; }
+.campaign-banner__details strong { font-weight: 500; color: var(--color-green); }
+@media (min-width: 480px) {
+  .campaign-banner__body { padding: 1rem; }
+  .campaign-banner__period { font-size: .625rem; }
+  .campaign-banner__name { font-size: 1.0625rem; }
+  .campaign-banner__value strong { font-size: 2.25rem; }
+}
