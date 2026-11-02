@@ -38,3 +38,7 @@
 /* 1枚版は掲載内容に合わせて上下の余白を詰める。 */
 .campaign-pair--single .campaign-banner__visual { min-height: 0; }
 .campaign-pair--single .campaign-banner__body { padding-block: .625rem; }
+
+/* FV直後のキャンペーン案内。詳細は初期表示で開く。 */
+.campaign-lead { padding-bottom: 2.5rem; }
+.campaign-lead .campaign-pair { margin-bottom: 0; }
