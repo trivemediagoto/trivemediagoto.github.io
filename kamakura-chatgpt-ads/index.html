@@ -93,6 +93,29 @@
     }
     .sources a { display: inline-block; padding-block: 4px; }
 
+    .placement-examples { margin-top: clamp(30px, 4vw, 48px); }
+    .placement-examples h2 { font-size: clamp(23px, 2.6vw, 29px); }
+    .placement-hint { margin-top: 5px; color: var(--muted); font-size: 14px; }
+    .placement-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      align-items: start;
+      gap: clamp(20px, 3vw, 36px);
+      margin-top: 17px;
+    }
+    .placement-image {
+      display: block;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      cursor: zoom-in;
+    }
+    .placement-image img { display: block; width: 100%; height: auto; }
+    .placement-image.phone img { aspect-ratio: 3 / 4; object-fit: cover; }
+    .placement-grid figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .placement-grid figcaption strong { display: block; margin-bottom: 3px; color: var(--ink); font-size: 16px; }
+    .placement-grid figcaption a { display: inline-block; margin-top: 4px; }
+
     .table-frame {
       margin-top: 22px;
       border: 1px solid var(--line);
@@ -129,6 +152,8 @@
       thead { font-size: 13px; }
       .beta { display: block; font-size: .78em; }
       .sources { font-size: 13px; }
+      .placement-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+      .placement-image.phone { max-width: 400px; }
       blockquote { padding-inline-start: 13px; }
     }
 
@@ -143,7 +168,7 @@
       .masthead { display: none; }
       .section-inner, .section:first-child .section-inner { padding-block: 17px; }
       h1, h2, h3 { break-after: avoid; }
-      tr, blockquote { break-inside: avoid; }
+      tr, blockquote, figure { break-inside: avoid; }
     }
   </style>
 </head>
@@ -170,6 +195,32 @@
           <span aria-hidden="true">·</span>
           <a href="https://help.openai.com/ja-jp/articles/20001245-ads-manager-availability" target="_blank" rel="noopener noreferrer">日本での提供状況</a>
         </p>
+        <section class="placement-examples" aria-labelledby="placement-title">
+          <h2 id="placement-title">掲載画面の例</h2>
+          <p class="placement-hint">画像を選ぶと拡大して見られます。</p>
+          <div class="placement-grid">
+            <figure>
+              <a class="placement-image phone" href="https://images.ctfassets.net/kftzwdyauwt9/3dGtJys9W1b03mBtREjWJv/dc5dbf85708213f420a32790221e3f2c/Prompt-ja-JP.png" target="_blank" rel="noopener noreferrer" aria-label="スマートフォンの表示イメージを拡大する">
+                <img src="https://images.ctfassets.net/kftzwdyauwt9/3dGtJys9W1b03mBtREjWJv/dc5dbf85708213f420a32790221e3f2c/Prompt-ja-JP.png" width="1248" height="1248" alt="スマートフォンのChatGPTで、庭のフェンスに関する日本語の回答の下に、Adと記された広告カードが表示される例" referrerpolicy="no-referrer">
+              </a>
+              <figcaption>
+                <strong>スマートフォンの表示イメージ</strong>
+                日本語の回答の下に、広告主名と「Ad」を添えたカードが表示されます。<br>
+                <a href="https://ads.openai.com/ja-JP" target="_blank" rel="noopener noreferrer">出典　OpenAI Ads</a>
+              </figcaption>
+            </figure>
+            <figure>
+              <a class="placement-image" href="https://www.adthena.com/wp-content/uploads/2026/03/Group-1000003044-1200x806.png" target="_blank" rel="noopener noreferrer" aria-label="PCブラウザでの配信例を拡大する">
+                <img src="https://www.adthena.com/wp-content/uploads/2026/03/Group-1000003044-1200x806.png" width="1200" height="806" alt="PCブラウザのChatGPTで、旅行に関する回答の下にSponsoredと記されたExpediaの広告が表示された画面" referrerpolicy="no-referrer">
+              </a>
+              <figcaption>
+                <strong>PCブラウザでの配信例</strong>
+                2026年2月の米国テストで、回答の下に「Sponsored」と付いたExpediaの広告が表示されました。<br>
+                <a href="https://www.adthena.com/resources/blog/chatgpt-ads-trial-adthenas-first-sighting/" target="_blank" rel="noopener noreferrer">出典　Adthena</a>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
       </div>
     </section>
 
